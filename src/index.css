@@ -4,7 +4,95 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
 }
 
+.loginForm label{
+  font-weight: bold;
+}
+nav {
+  background-color: tomato;
+}
+
+button {
+    display: block;
+    padding: .4em 1.8em;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Roboto;
+    color: #000;
+    width: 250px;
+    border: 2px solid tomato;
+    border-radius: .12em;
+    font-weight: bolder;
+    text-align: center;
+    transition: all .3s;
+    font-size: 16px;
+    background-color: tomato;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.appInfo{
+  padding-top: 100px;
+}
+
+form.recipient, .giftSearch {
+    line-height: 3;
+}
+
+legend{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+select#category {
+    width: 250px;
+    height: 35px;
+}
+
+/* Nav */
+
+li > a {
+  color: black;
+  text-decoration: none;
+}
+li{
+    list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: white;
+}
+
+.title{
+  margin: 0%;
+  left: 0;
+  top: 0;
+}
+
+header{
+  display: inline;
+}
+
+
+form input, select{
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   font-size: 20px;
+   border-radius: 20px;
+   height: 30px;
+}
+
+input[type="date"] {
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 35px;
+}

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
+ 
+import './recipient-card.css';
 
 export default function RecipientCard(props) {
 	return (
@@ -9,13 +11,15 @@ export default function RecipientCard(props) {
 				<div className="recipientCardHeader">
 					<span className="card-title">{props.propName}</span>
 					<span className="icons">
-						<Link to={`${props.link}/${props.id}`} aria-label="edit recipient">
-							<i className="fa fa-pencil" aria-hidden="true" />
+						<Link to={`edit-recipient/${props.id}`} aria-label="edit recipient">
+							{/* <i className="fa fa-pencil" aria-hidden="true" /> */ }
+							Edit
 						</Link>
 						<Link
-							to={`deleteRecipient/${props.id}`}
+							to={`delete-recipient/${props.id}`}
 							aria-label="delete recipient">
-							<i className="fa fa-times" aria-hidden="true" />
+							{/* <i className="fa fa-times" aria-hidden="true" /> */ }
+							Delete
 						</Link>
 					</span>
 				</div>
@@ -25,33 +29,33 @@ export default function RecipientCard(props) {
 				</p>
 				<p className="relationship">
 					<span className="recipient-field-title">Relationship:</span>
-					{props.name}
+					{props.relationship}
 				</p>
 				<p className="occassion">
 					<span className="recipient-field-title">Occassion: </span>
-					{props.name}
+					{props.occassion}
 				</p>
-				<p className="date">
-					<span className="expense-field-title">Gift Date: </span>
+				{/* <p className="date">
+					<span className="recipient-field-title">Gift Date: </span>
 					<Moment
 						tz="America/Los_Angeles"
 						aria-hidden="true"
-						format="MMM DD, YYYY">
+						format="DD-MMM-YYYY">
 						{props.date}
 					</Moment>
-				</p>
+				</p> */}
 				<p className="gift">
-					<span className="expense-field-title">Gift: </span>
-					{props.category}
-        </p>
-        <p className="budget">
-          <span className="expense-field-title">Budget: </span>
-          { props.category }
-        </p>
-        <p className="status">
-          <span className="expense-field-title">Gift Status: </span>
-          { props.category }
-        </p>
+					<span className="recipient-field-title">Gift: </span>
+					{props.gift}
+				</p>
+				<p className="budget">
+					<span className="recipient-field-title">Budget: </span>
+					{props.budget}
+				</p>
+				<p className="status">
+					<span className="recipient-field-title">Gift Status: </span>
+					{props.giftStatus}
+				</p>
 			</div>
 		</li>
 	);

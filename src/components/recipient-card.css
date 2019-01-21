@@ -1,0 +1,65 @@
+.recipientCard {
+  margin: 10px auto;
+  box-shadow: 6px 7px 10px #888888;
+  min-height: 150px;
+  padding: 20px 15px;
+  background: radial-gradient(ellipse at bottom, #202c3b 0%, #181c25 100%);
+  max-width: 800px;
+}
+
+.recipientCardHeader {
+  margin-bottom: 15px;
+}
+
+.recipientCard p {
+  text-align: left;
+  color: white;
+}
+
+ul {
+  list-style-type:none;
+  margin: 0;
+  padding: 0;
+}
+
+i {
+  margin-left: 20px;
+}
+
+.recipient-field-title {
+  color: tomato;
+  text-decoration-line: underline;
+}
+
+.icons {
+  float: right;
+  margin-right: 5px;
+  background-color: white;
+}
+
+.card-title {
+  float: center;
+  color: white;
+  font-size: 24px;
+  text-decoration-line: underline;
+  font-family: 'Courgette'
+}
+
+.search {
+  margin-top: 20px;
+  background: radial-gradient(ellipse at bottom, #202c3b 0%, #181c25 100%);
+}
+
+.search p {
+  font-weight: bolder;
+  font-size: 19px;
+}
+
+.search, hr {
+  margin-top: 24px;
+  border: 2px solid tomato;
+}
+
+hr {
+  border: 1px solid tomato;
+}

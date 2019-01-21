@@ -13,7 +13,7 @@ export class RegistrationForm extends React.Component {
   }
 	render() {
 		return (
-			<form className="loginForm">
+			<form className="loginForm" onSubmit={ this.props.handleSubmit(values => this.onSubmit(values)) }>
 				<label htmlFor="name">Name</label>
 				<Field component="input" type="text" name="name" />
 				<label htmlFor="email">Email</label>

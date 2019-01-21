@@ -1,16 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Logout from './logout';
-// import requiresLogin from './requiresLogin';
+
+import requiresLogin from './requiresLogin';
 import RecipientCard from './recipientCard';
-import AddRecipients from './addRecipients';
-// import { fetchRecipientDetails } from '../actions/recipientDetails';
+import { fetchAllRecipients } from '../actions/recipientDetails';
 
 class Dashboard extends React.Component {
+
 	componentDidMount() {
-		//	this.props.dispatch(fetchRecipientDetails());
+		this.props.dispatch(fetchAllRecipients());
 	}
+
 
 	render() {
 		let recipientDetails;
@@ -21,22 +22,18 @@ class Dashboard extends React.Component {
 				</div>
 			);
 		} else {
-			if (this.props.recipients && this.props.expenses.length) {
+			if (this.props.recipients && this.props.recipients.length) {
 				let recipients = this.props.recipients;
-				recipientDetails = recipients.map((recipient, index) => (
-					<RecipientCard key={index} link={`/editRecipient`} {...recipient} />
-				));
+				recipientDetails = recipients.map((recipient, index) => <RecipientCard key={index} { ...recipient }/>);
 			}
 		}
 		return (
 			<div>
-				<h1>Welcome {this.props.username}!</h1>
-				<Logout />
 				<Link to="/addRecipients">
 					<button className="addRecipients">Add Recipients</button>
 				</Link>
 				<ul>
-					{this.props.recipientDetails && this.props.recipientDetails.length ? (
+					{this.props.recipients && this.props.recipients.length ? (
 						recipientDetails
 					) : (
 						<span>You have not added any recipients yet.Please add them!</span>
@@ -48,13 +45,13 @@ class Dashboard extends React.Component {
 }
 
 const mapStateToProps = state => {
-	// const { currentUser } = state.auth;
+	//console.log(state);
 	return {
-		// 	username: state.auth.currentUser.username,
-		// 	recipients: state.recipients.recipientDetails,
-		// 	protectedData: state.protectedData.data
+		username: state.auth.currentUser.username,
+		recipients: state.recipient.recipients,
+		isFetching: state.recipient.isFetching
 	};
 };
 
-//export default requiresLogin()(connect(mapStateToProps)(Dashboard));
-export default connect(mapStateToProps)(Dashboard);
+export default requiresLogin()(connect(mapStateToProps)(Dashboard));
+// export default connect(mapStateToProps)(Dashboard);

@@ -1,0 +1,115 @@
+
+nav {
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+#nav-large-menu {
+ /* display: none; */
+}
+
+button.addRecipients {
+    margin-top: 100px;
+}
+
+li > a {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: tomato;
+}
+
+nav h1 {
+  display: block;
+  font-weight: normal;
+  font-family: 'Permanent Marker';
+  color: white;
+  font-size: 30px;
+  float: right;
+  margin-right: 20px;
+}
+
+ #nav-large-menu {
+    display: block;
+    text-align: right;
+    position: absolute;
+    z-index: 10;
+    /* top: 8px; */
+    left: 0;
+    right: 0;
+    margin-right: 20px;
+    height:60px;
+  }
+
+
+@media only screen and (min-width: 480px) {
+
+
+  #nav-large-menu {
+    display: block;
+    text-align: right;
+    position: absolute;
+    z-index: 10;
+    /* top: 8px; */
+    left: 0;
+    right: 0;
+    margin-right: 20px;
+    height:60px;
+  }
+  .nav-large-menu-items {
+    display: block;
+    float: right;
+    width: inherit;
+    background: none;
+    border: none;
+    margin-top: 20px;
+    margin-right: 20px;
+    font-size: 18px;
+  }
+  .nav-large-menu-items:hover {
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  nav h1 {
+    color: black;
+    float: left;
+    font-size: 2.2rem;
+    margin-top: 0.3rem;
+    margin-left: 100px;
+  }
+
+}
+
+@media only screen and (min-width: 768px) {
+  nav h1 {
+    font-size: 2.6rem;
+    margin-top: 0.2rem;
+  }
+
+  .nav-large-menu-items {
+    display: block;
+    float: right;
+    width: inherit;
+    background: none;
+    padding-right: 0px;
+    border: none;
+    margin-top: 24px;
+    margin-right: 20px;
+    font-size: 20px;
+  }
+  
+}

@@ -17,24 +17,33 @@ export const searchGiftsError = error => ({
 	error
 });
 
-export const callSearchGiftsAPI = input => dispatch => {
-	const URL = `${GIFT_SEARCH_API_URL}`;
+export const callSearchGiftsAPI = inputs => dispatch => {
 	dispatch(searchGifts());
-	fetch(URL, {
+	let url = new URL(GIFT_SEARCH_API_URL),
+		params = {
+			apiKey: GIFT_SEARCH_API_KEY,
+			query: inputs.item,
+			country: 'us',
+			itemsPerPage: 3
+		};
+    Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+    console.log(url);
+
+	return fetch(url, {
 		method: 'GET',
 		headers: {
-			'Content-type': 'application-json',
-			authorization: `secret ${SECRET}`
-		},
-		data: {
-			// apiKey: GIFT_SEARCH_API_KEY,
-			// query: input.query,
-			// country: 'us',
-			// category: input.category,
-			// itemsPerPage: 3
+			'Content-Type': 'application/json',
+			Authorization: `secret ${SECRET}`
 		}
 	})
-		.then(res => res.json)
-		.then(gifts => dispatch(searchGiftsSuccess()))
-		.catch(err => dispatch(searchGiftsError()));
+		.then(res => {
+			console.log('result');
+			return res.json();
+		})
+        .then(response => {
+            console.log(response);
+
+            dispatch(searchGiftsSuccess(response.items));
+		})
+		.catch(err => dispatch(searchGiftsError(err)));
 };

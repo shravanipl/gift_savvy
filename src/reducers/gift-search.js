@@ -4,12 +4,12 @@ import {
 	SEARCH_GIFTS_ERROR
 } from '../actions/gift-search';
 const initialState = {
-	gifts: '',
+	gifts: [],
 	isFetching: false,
 	error: null
 };
 
-export const reducer = (state = initialState, action) => {
+export const giftSearchReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case SEARCH_GIFTS:
 			return Object.assign({}, state, {
@@ -28,5 +28,4 @@ export const reducer = (state = initialState, action) => {
 		default:
 			return state;
   }
-  
 };

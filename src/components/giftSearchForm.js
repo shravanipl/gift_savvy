@@ -1,11 +1,16 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import { callSearchGiftsAPI } from '../actions/gift-search';
 import GiftResult from './giftResult';
 
 export class GiftSearchForm extends React.Component {
+	onSubmit(values) {
+		const inputs = Object.assign({}, values);
+		return this.props.dispatch(callSearchGiftsAPI(inputs));
+	}
 	render() {
 		let giftDetails;
 		if (this.props.isFetching) {
@@ -17,16 +22,15 @@ export class GiftSearchForm extends React.Component {
 		} else {
 			if (this.props.gifts && this.props.gifts.length) {
 				let gifts = this.props.gifts;
-				giftDetails = giftDetails.map((gift, index) => (
-					<GiftResult {...gift}/>
-				));
+				giftDetails = gifts.map((gift, index) => <GiftResult key={index} {...gift} />);
 			}
 		}
 		return (
-			<form>
-				<fieldset className="giftSearch">
+			<form
+				className="giftSearch"
+				onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+				<fieldset>
 					<legend id="legend">Gift Search</legend>
-
 					<label htmlFor="item">Gift Item</label>
 					<Field component="input" name="item" type="text" />
 
@@ -38,8 +42,7 @@ export class GiftSearchForm extends React.Component {
 						id="category"
 						name="category"
 						label="Category"
-						aria-label="select a value"
-						required>
+						aria-label="select a value">
 						<option key={1000000} value={''}>
 							Select a category
 						</option>
@@ -47,21 +50,26 @@ export class GiftSearchForm extends React.Component {
 
 					<label htmlFor="price">Price</label>
 					<Field component="input" name="price" type="text" />
-					<button
-						type="submit"
-						className="submit"
-						onclick={this.props.dispatch(callSearchGiftsAPI())}>
+					<button type="submit" className="submit">
 						Search Gifts
 					</button>
-					{<ul className="giftResults">{giftDetails}</ul>}
+					<ul className="giftResults">{giftDetails}</ul>
 				</fieldset>
 			</form>
 		);
 	}
 }
 
+const mapStateToProps = state => {
+	return {
+		gifts: state.giftSearch.gifts
+	};
+};
+
 export default withRouter(
-	reduxForm({
-		form: 'giftSearch'
-	})(GiftSearchForm)
+	connect(mapStateToProps)(
+		reduxForm({
+			form: 'giftSearch'
+		})(GiftSearchForm)
+	)
 );

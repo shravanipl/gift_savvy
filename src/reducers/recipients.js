@@ -2,6 +2,9 @@ import {
 	FETCHING_RECIPIENT_DETAILS,
 	FETCHING_RECIPIENT_DETAILS_SUCCESS,
 	FETCHING_RECIPIENT_DETAILS_ERROR,
+	FETCH_RECIPIENT_DETAILS,
+	FETCH_RECIPIENT_DETAILS_SUCCESS,
+	FETCH_RECIPIENT_DETAILS_ERROR,
 	ADD_RECIPIENT_DETAILS,
 	ADD_RECIPIENT_DETAILS_SUCCESS,
 	ADD_RECIPIENT_DETAILS_ERROR,
@@ -14,24 +17,38 @@ import {
 } from '../actions/recipientDetails';
 
 const initialState = {
-	recipients: '',
+	recipient: '',
+	recipients:'',
 	isFetching: false,
 	error: null
 };
 
-
-export const reducer = (state = initialState, action) => {
+export const recipientReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case FETCHING_RECIPIENT_DETAILS:
 			return Object.assign({}, state, {
 				isFetching: true
 			});
 		case FETCHING_RECIPIENT_DETAILS_SUCCESS:
-			return Object.assign({}, state, {
+   		return Object.assign({}, state, {
 				isFetching: false,
 				recipients: action.recipients
 			});
 		case FETCHING_RECIPIENT_DETAILS_ERROR:
+			return Object.assign({}, state, {
+				isFetching: false,
+				error: action.error
+			});
+		case FETCH_RECIPIENT_DETAILS:
+			return Object.assign({}, state, {
+				isFetching: true
+			});
+		case FETCH_RECIPIENT_DETAILS_SUCCESS:
+			return Object.assign({}, state, {
+				isFetching: false,
+				recipient: action.recipient
+			});
+		case FETCH_RECIPIENT_DETAILS_ERROR:
 			return Object.assign({}, state, {
 				isFetching: false,
 				error: action.error

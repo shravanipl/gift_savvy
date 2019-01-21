@@ -1,16 +1,17 @@
 import React from 'react';
-import Logout from './logout';
-import  GiftSearchForm from './giftSearchForm';
+import { connect } from 'react-redux';
 
-export default class GiftSearchPage extends React.Component {
-	render() {
-		return (
-			<div className="giftSearchPage">
-				<h2>Search the items you want to gift</h2>
-				<Logout />
-				<GiftSearchForm />
-			</div>
-		);
-	}
+import Logout from './logout';
+import GiftSearchForm from './giftSearchForm';
+import requiresLogin from './requiresLogin';
+
+export function GiftSearchPage(props) {
+	return (
+		<div className="giftSearchPage">
+			<h2>Search the items you want to gift</h2>
+			<GiftSearchForm />
+		</div>
+	);
 }
 
+export default requiresLogin()(connect()(GiftSearchPage));

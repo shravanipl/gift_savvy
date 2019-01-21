@@ -1,14 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link,Redirect } from 'react-router-dom';
 import LoginForm from './loginForm';
+import Nav from './nav';
 
-function LandingPage() {
+function LandingPage(props) {
+	if (props.loggedIn) {
+		return <Redirect to="/dashboard" />;
+	}
+
 	return (
-		<div>
-			<h2>Never miss to greet and gift your loved ones</h2>
+		<div className="landing">
+			<h2 className="appInfo">Never miss to greet and gift your loved ones</h2>
 			<LoginForm/>
-			<Link to="/register">Sign Up</Link>
 		</div>
 	);
 }

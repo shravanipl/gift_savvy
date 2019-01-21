@@ -2,11 +2,14 @@ import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import Nav from './nav';
 import LandingPage from './landingPage';
 import Dashboard from './dashboard';
+import AddRecipients from './add-recipient';
 import RegistrationPage from './registrationPage';
-import AddRecipients from './addRecipients';
 import GiftSearchPage from './giftSearchPage';
+import EditRecipient from './edit-recipient';
+import DeleteRecipient from './delete-recipient';
 import { refreshAuthToken } from '../actions/auth';
 
 export class App extends React.Component {
@@ -42,12 +45,14 @@ export class App extends React.Component {
 	render() {
 		return (
 			<div className="app">
-				<h1>Gift Savvy</h1>
+				<Nav/>
 				<Route exact path="/" component={LandingPage} />
 				<Route exact path="/dashboard" component={Dashboard} />
 				<Route exact path="/register" component={RegistrationPage} />
 				<Route exact path="/addRecipients" component={AddRecipients} />
-				<Route exact path="/giftSearchPage" component={GiftSearchPage} />
+				<Route exact path="/giftSearchPage" component={ GiftSearchPage } />
+				<Route exact path="/edit-recipient/:id" component={ EditRecipient } />
+				<Route exact path="/delete-recipient/:id" component={ DeleteRecipient } />
 			</div>
 		);
 	}
