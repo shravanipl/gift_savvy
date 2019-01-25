@@ -17,7 +17,7 @@ export class EditRecipient extends React.Component {
 		if (this.props.isFetching)
 			return (
 				<div id="loading">
-					<img src={''} alt="Loading..." />
+					<img src={'../images/load.png'} alt="Loading..." />
 				</div>
 			);
 

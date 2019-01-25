@@ -13,8 +13,8 @@ import { connect } from 'react-redux';
 export class EditRecipientForm extends React.Component {
 	onSubmit(values) {
 		const recipientId = this.props.initialValues.id;
-    const recipient = Object.assign({}, { id: recipientId }, values);
-    console.log("edit",recipient);
+		const recipient = Object.assign({}, { id: recipientId }, values);
+		console.log('edit', recipient);
 		return this.props.dispatch(updateRecipient(recipient));
 	}
 
@@ -48,6 +48,7 @@ export class EditRecipientForm extends React.Component {
 							aria-label="Name"
 							required
 						/>
+
 						<label htmlFor="relationship">Relationship</label>
 						<Field
 							component="input"
@@ -57,6 +58,7 @@ export class EditRecipientForm extends React.Component {
 							id="relationship"
 							aria-label="relationship"
 						/>
+
 						<label htmlFor="occassion">Occassion</label>
 						<Field
 							component="input"
@@ -66,32 +68,21 @@ export class EditRecipientForm extends React.Component {
 							id="occassion"
 							required
 						/>
-						<Field
-							component="input"
-							type="date"
-							name="giftDate"
-							label="GiftDate"
-							required
-						/>
-						<Field
-							component="input"
-							type="text"
-							name="gift"
-							label="Gift"
-							required
-						/>
-						<Field
-							component="input"
-							type="number"
-							name="budget"
-							label="Budget"
-							required
-						/>
+
+						<label htmlFor="occassion">Gift Date</label>
+						<Field component="input" type="date" name="giftDate" required />
+
+						<label htmlFor="occassion">Gift</label>
+						<Field component="input" type="text" name="gift" required />
+
+						<label htmlFor="occassion">Budget</label>
+						<Field component="input" type="number" name="budget" required />
+
+						<label htmlFor="occassion">Gift Status</label>
 						<Field
 							component="input"
 							type="text"
 							name="giftStatus"
-							label="Gift Status"
 							required
 						/>
 					</section>
@@ -113,8 +104,8 @@ export class EditRecipientForm extends React.Component {
 
 // Decorate with reduxForm(). It will read the initialValues prop provided by connect()
 EditRecipientForm = reduxForm({
-  form: 'editRecipient',
-  enableReinitialize: true,
+	form: 'editRecipient',
+	enableReinitialize: true,
 	onSubmitFail: (errors, dispatch) =>
 		dispatch(focus('editExpense', Object.keys(errors)[0]))
 })(EditRecipientForm);

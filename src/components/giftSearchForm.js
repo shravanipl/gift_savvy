@@ -16,7 +16,7 @@ export class GiftSearchForm extends React.Component {
 		if (this.props.isFetching) {
 			return (
 				<div id="loading">
-					<img src={''} alt="Loading..." />
+					<img src={'../images/load.png'} alt="Loading..."/>
 				</div>
 			);
 		} else {
@@ -29,8 +29,6 @@ export class GiftSearchForm extends React.Component {
 			<form
 				className="giftSearch"
 				onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-				<fieldset>
-					<legend id="legend">Gift Search</legend>
 					<label htmlFor="item">Gift Item</label>
 					<Field component="input" name="item" type="text" />
 
@@ -54,7 +52,6 @@ export class GiftSearchForm extends React.Component {
 						Search Gifts
 					</button>
 					<ul className="giftResults">{giftDetails}</ul>
-				</fieldset>
 			</form>
 		);
 	}

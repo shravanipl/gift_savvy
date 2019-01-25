@@ -14,7 +14,9 @@ export class DeleteRecipient extends React.Component {
 	render() {
 		if (this.props.isFetching)
 			return (
-				<div id="loading">{/* <img src={spinner} alt="Loading..." /> */}</div>
+				<div id="loading">
+					<img src={'../images/load.png'} alt="Loading..." />
+				</div>
 			);
 
 		let initialValues;

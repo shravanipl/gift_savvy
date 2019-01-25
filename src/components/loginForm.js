@@ -1,7 +1,9 @@
 import React from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
+import { Link } from 'react-router-dom';
 
 import { login } from '../actions/auth';
+import './nav.css';
 
 export class LoginForm extends React.Component {
 	onSubmit(values) {
@@ -11,9 +13,9 @@ export class LoginForm extends React.Component {
 		const { error } = this.props;
 
 		return (
-			
+			<div className="login_form">
 			<form
-				className="loginForm"
+				className="loginForm" id="login"
 				onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 				<label htmlFor="username">Username</label>
 				<Field component="input" type="text" name="username" id="username" />
@@ -29,12 +31,16 @@ export class LoginForm extends React.Component {
 					<div className="form-error" aria-live="polite">
 						{this.props.error}
 					</div>
-				) }
-				
+				)}
+
 				<button disabled={this.props.pristine || this.props.submitting}>
 					Log In
 				</button>
-			</form>
+				<Link to="/register" className="registerLink">
+					Create Account
+				</Link>
+				</form>
+			</div>
 		);
 	}
 }

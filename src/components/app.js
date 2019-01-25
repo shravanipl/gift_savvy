@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import Nav from './nav';
 import LandingPage from './landingPage';
 import Dashboard from './dashboard';
 import AddRecipients from './add-recipient';
@@ -15,10 +14,8 @@ import { refreshAuthToken } from '../actions/auth';
 export class App extends React.Component {
 	componentDidUpdate(prevProps) {
 		if (!prevProps.loggedIn && this.props.loggedIn) {
-			// When we are logged in, refresh the auth token periodically
 			this.startPeriodicRefresh();
 		} else if (prevProps.loggedIn && !this.props.loggedIn) {
-			// Stop refreshing when we log out
 			this.stopPeriodicRefresh();
 		}
 	}
@@ -30,7 +27,7 @@ export class App extends React.Component {
 	startPeriodicRefresh() {
 		this.refreshInterval = setInterval(
 			() => this.props.dispatch(refreshAuthToken()),
-			60 * 60 * 1000 // One hour
+			60 * 60 * 1000
 		);
 	}
 
@@ -45,14 +42,16 @@ export class App extends React.Component {
 	render() {
 		return (
 			<div className="app">
-				<Nav/>
+				<h1>
+					<span className="main-title">Gift Savvy<i className="fa fa-gift" aria-hidden="true" /></span>
+				</h1>
 				<Route exact path="/" component={LandingPage} />
 				<Route exact path="/dashboard" component={Dashboard} />
 				<Route exact path="/register" component={RegistrationPage} />
 				<Route exact path="/addRecipients" component={AddRecipients} />
-				<Route exact path="/giftSearchPage" component={ GiftSearchPage } />
-				<Route exact path="/edit-recipient/:id" component={ EditRecipient } />
-				<Route exact path="/delete-recipient/:id" component={ DeleteRecipient } />
+				<Route exact path="/giftSearchPage" component={GiftSearchPage} />
+				<Route exact path="/edit-recipient/:id" component={EditRecipient} />
+				<Route exact path="/delete-recipient/:id" component={DeleteRecipient} />
 			</div>
 		);
 	}
@@ -63,5 +62,4 @@ const mapStateToProps = state => ({
 	loggedIn: state.auth.currentUser !== null
 });
 
-// Deal with update blocking - https://reacttraining.com/react-router/web/guides/dealing-with-update-blocking
 export default withRouter(connect(mapStateToProps)(App));

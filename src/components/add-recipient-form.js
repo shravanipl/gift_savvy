@@ -20,6 +20,7 @@ export class AddRecipientForm extends React.Component {
 				</div>
 			);
 		}
+		
 
 		return (
 			<div>

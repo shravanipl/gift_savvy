@@ -1,14 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Logout from './logout';
+import Nav from './nav';
 import GiftSearchForm from './giftSearchForm';
 import requiresLogin from './requiresLogin';
 
 export function GiftSearchPage(props) {
 	return (
 		<div className="giftSearchPage">
-			<h2>Search the items you want to gift</h2>
+			<Nav/>
+			<p className="giftPageTitle">Search the items you want to gift</p>
 			<GiftSearchForm />
 		</div>
 	);

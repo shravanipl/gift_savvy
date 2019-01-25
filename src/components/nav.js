@@ -11,8 +11,6 @@ export class Nav extends React.Component {
 		clearAuthToken();
 	}
 	render() {
-		//mobile devices display a hamburger menu
-		//large screens display a top nav-bar menu
 		let logout;
 		if (this.props.loggedIn) {
 			logout = (
@@ -22,30 +20,21 @@ export class Nav extends React.Component {
 			);
 		}
 		const loggedIn = this.props.loggedIn;
-		return (
-			<nav aria-label="main menu">
-				<h1>Gift Savvy</h1>
-				{loggedIn ? (
-					<div id="nav-large-menu">
-						{ logout}
+		if (loggedIn) {
+			return (
+				<nav aria-label="main menu">
+					<div id="nav-large-menu">	
+						<Link to="/dashboard" className="nav-large-menu-items">
+							Home
+						</Link>
 						<Link to="/giftSearchPage" className="nav-large-menu-items">
 							Search Gifts
 						</Link>
-						<Link to="/dashboard" className="nav-large-menu-items">
-							{/* <img className="logo-sm" src={ require("../images/house-big.png") } alt="CribTrakr Logged in" /> */}
-							Home
-						</Link>
+						{ logout }
 					</div>
-				) : (
-					<div id="nav-large-menu">
-							{/* <img className="logo-sm" src={ require("../images/house-big.png") } alt="CribTrakr Logged out" /> */}
-						<Link to="/register" className="nav-large-menu-items">
-							Create Account
-						</Link>
-					</div>
-				)}
-			</nav>
-		);
+				</nav>
+			)
+		}
 	}
 }
 

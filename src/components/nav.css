@@ -1,15 +1,38 @@
 
 nav {
   color: #fff;
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
+  font-weight: 700;
+  font-size: 15px;
 }
 
-#nav-large-menu {
- /* display: none; */
+nav a {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 15px;
+    border: 3px solid transparent;
+    color: #e5474b;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    padding: 11.6666666667px 23.3333333333px;
+    border: 2px solid #e5474b;
+}
+
+nav li {
+    -webkit-transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    display: inline-block;
+    vertical-align: middle;
+    width: 19%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
 }
 
 button.addRecipients {
@@ -27,29 +50,22 @@ a {
 }
 
 a:hover {
-  color: tomato;
+  color:#e5474b;
 }
 
 nav h1 {
   display: block;
   font-weight: normal;
   font-family: 'Permanent Marker';
-  color: white;
-  font-size: 30px;
   float: right;
-  margin-right: 20px;
 }
 
  #nav-large-menu {
-    display: block;
-    text-align: right;
+    display: flex;
+    justify-content: center;
     position: absolute;
-    z-index: 10;
-    /* top: 8px; */
-    left: 0;
-    right: 0;
-    margin-right: 20px;
-    height:60px;
+    margin-top: 30px;
+    
   }
 
 
@@ -57,30 +73,26 @@ nav h1 {
 
 
   #nav-large-menu {
-    display: block;
-    text-align: right;
+    display: flex;
+    justify-content: center;
     position: absolute;
     z-index: 10;
-    /* top: 8px; */
+    top: 50px;    
     left: 0;
     right: 0;
-    margin-right: 20px;
+    bottom: 50px;
     height:60px;
   }
+  
   .nav-large-menu-items {
     display: block;
-    float: right;
-    width: inherit;
-    background: none;
-    border: none;
-    margin-top: 20px;
-    margin-right: 20px;
-    font-size: 18px;
+    font-size: 15px;
+    text-align: center;
+    border:2px solid transparent;
   }
   .nav-large-menu-items:hover {
     color: white;
-    background: none;
-    border: none;
+    background: #e5474b;
     cursor: pointer;
   }
 
@@ -101,15 +113,11 @@ nav h1 {
   }
 
   .nav-large-menu-items {
-    display: block;
-    float: right;
-    width: inherit;
+    display: block; 
     background: none;
-    padding-right: 0px;
-    border: none;
-    margin-top: 24px;
-    margin-right: 20px;
-    font-size: 20px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
   }
   
 }

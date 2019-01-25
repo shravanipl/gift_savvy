@@ -13,14 +13,14 @@ export class AddRecipient extends React.Component {
 
 			return (
 			<div id="loading">
-				{/* <img src={spinner} alt="Loading..." /> */ }
+					{ <img src={ '../images/load.png' } alt="Loading..." /> }
 			</div>
 			);
 		}
 
 		return (
 			<div className="dashboard">
-				<h1>Add new Recipient</h1>
+				<h2 className="add_title">Add Recipient</h2>
 				<section className="outermost-section">
 					<AddRecipientForm/>
 				</section>
