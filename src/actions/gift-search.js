@@ -23,8 +23,7 @@ export const callSearchGiftsAPI = inputs => dispatch => {
 		params = {
 			apiKey: GIFT_SEARCH_API_KEY,
 			query: inputs.item,
-			country: 'us',
-			itemsPerPage: 3
+			country: 'us'
 		};
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
     console.log(url);

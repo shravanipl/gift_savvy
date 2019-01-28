@@ -26,8 +26,8 @@ export class GiftSearchForm extends React.Component {
 			}
 		}
 		return (
-			<form
-				className="giftSearch"
+			<div >
+				<form className="giftSearch"
 				onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 					<label htmlFor="item">Gift Item</label>
 					<Field component="input" name="item" type="text" />
@@ -51,8 +51,10 @@ export class GiftSearchForm extends React.Component {
 					<button type="submit" className="submit">
 						Search Gifts
 					</button>
-					<ul className="giftResults">{giftDetails}</ul>
 			</form>
+
+				<div className="giftResults">{ giftDetails }</div>
+			</div>
 		);
 	}
 }

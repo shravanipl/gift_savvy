@@ -1,0 +1,30 @@
+.giftResults{
+    display: flex;
+    align-content: space-between;
+    float: left;
+}
+
+.giftResult{
+    
+}
+
+.gift-container{
+    width: 940px;
+    max-width: 100%;
+    min-width: 768px;
+    margin: 0 auto;
+    padding: 0 0;
+    padding-bottom: 3em;}
+
+.card{
+  background-color: aqua;
+    display: inline-block;
+    /* width: 25%; */
+    height: 50%;
+    margin-top: 20px;
+        width: 33.33333%;
+}
+
+a {
+    display: block;
+}
