@@ -78,7 +78,7 @@ form{
 }
 
 form#login {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .appInfo{
@@ -139,7 +139,7 @@ form.recipient, .giftSearch {
 
 .giftPageTitle {
     font-size: 25px;
-    margin-top: 90px;
+    margin-top: 30px;
     font-weight: bold;
     font-family: Norican;
 }

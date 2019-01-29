@@ -55,6 +55,6 @@ i:hover{
 
 @media only screen and  (max-width: 650px){
   .recipientCard {
-    max-width: 300px;
+    max-width: 250px;
 }
 }
