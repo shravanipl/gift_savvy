@@ -235,6 +235,11 @@ u.colour{
   color:#e85d61;
   font-size: 18px;
 }
+
+
+span.message{
+  line-height: 5;
+}
  @media only screen and (max-width: 650px) {
   form input,select{
     font-size: 10px;

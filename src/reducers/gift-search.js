@@ -17,13 +17,13 @@ export const giftSearchReducer = (state = initialState, action) => {
 			});
 		case SEARCH_GIFTS_SUCCESS:
 			return Object.assign({}, state, {
-				isFetching: false,
-				gifts: action.gifts
+				gifts: action.gifts,
+				isFetching: false
 			});
 		case SEARCH_GIFTS_ERROR:
 			return Object.assign({}, state, {
-				isFetching: false,
-				error: action.error
+				error: action.error,
+				isFetching: false
 			});
 		default:
 			return state;

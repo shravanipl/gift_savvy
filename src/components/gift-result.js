@@ -10,7 +10,7 @@ export default function GiftResult(props) {
 				<div className="card">
 					<h2>{props.name}</h2>
 					<img src={props.imageUrl} alt="Item" />
-					<a href={ props.url } target="_blank">Click</a>
+					<a href={ props.url } target="_blank">CLICK</a>
 				</div>
 			</div>
 			</li>

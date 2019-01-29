@@ -18,28 +18,33 @@ export class GiftSearchForm extends React.Component {
 		if (this.props.isFetching) {
 			return (
 				<div id="loading">
-					<img src={ '../images/load.png' } alt="Loading..." />
+					<img src={'../images/load.png'} alt="Loading..." />
 				</div>
 			);
-		}
-	
-		else if (this.props.gifts && this.props.gifts.length) {
-			let gifts = this.props.gifts;
+		} else if (this.props.gifts.items && this.props.gifts.totalItems > 0) {
+			let gifts = this.props.gifts.items;
 			giftDetails = gifts.map((gift, index) => (
-				<GiftResult key={ index } { ...gift } />
+				<GiftResult key={index} {...gift} />
 			));
+		} else if (this.props.gifts.totalItems === 0) {
+			err = <p>Please enter valid search term!</p>;
+		} else if (this.props.err) {
+			err = <p>{this.props.err}</p>;
 		}
-		else if (this.props.err) {
-			err = <p>{ this.props.err }</p>;
-		}
-	
+
 		return (
 			<div>
 				<form
 					className="giftSearch"
 					onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 					<label htmlFor="item">Gift Item</label>
-					<Field component="input" name="item" type="text" />
+					<Field
+						component="input"
+						name="item"
+						type="text"
+						placeholder="eg.Nike running shoes"
+						required
+					/>
 
 					<button type="submit" className="submit">
 						Search Gifts
@@ -47,7 +52,7 @@ export class GiftSearchForm extends React.Component {
 				</form>
 
 				<div className="error">{err}</div>
-				<div className="giftResults">{ giftDetails }</div>
+				<div className="giftResults">{giftDetails}</div>
 			</div>
 		);
 	}
@@ -56,6 +61,7 @@ export class GiftSearchForm extends React.Component {
 const mapStateToProps = state => {
 	return {
 		gifts: state.giftSearch.gifts,
+		isFetching: state.giftSearch.isFetching,
 		err: state.giftSearch.error
 	};
 };

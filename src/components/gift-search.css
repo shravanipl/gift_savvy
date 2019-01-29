@@ -42,6 +42,17 @@
     display: block;
 }
 
+.card h2 {
+    padding-bottom: 25px;
+    font-size: 20px;
+    height: 35px;
+}
+
+.card:hover{
+   height: 55%;
+   width: 39%;
+}
+
 @media screen and (max-width: 600px) {
   .giftResult {
     width: 100%;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm ,focus} from 'redux-form';
 
 import Select from './select';
 import { addRecipient } from '../actions/recipient-details';
@@ -69,10 +69,10 @@ export class AddRecipientForm extends React.Component {
 }
 
 AddRecipientForm = reduxForm({
-	form: 'addRecipient'
-	// onSubmitFail: (errors, dispatch) => {
-	// 	console.log(`Error: ${JSON.stringify(errors)}`);
-	// 	dispatch(focus('addRecipient', Object.keys(errors)[0]));}
+	form: 'addRecipient',
+	onSubmitFail: (errors, dispatch) => {
+		console.log(`Error: ${JSON.stringify(errors)}`);
+		dispatch(focus('addRecipient', Object.keys(errors)[0]));}
 })(AddRecipientForm);
 
 export default AddRecipientForm;

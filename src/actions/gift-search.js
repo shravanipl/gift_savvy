@@ -1,7 +1,7 @@
 import { GIFT_SEARCH_API_URL, GIFT_SEARCH_API_KEY, SECRET } from '../config';
 
 export const SEARCH_GIFTS = 'SEARCH_GIFTS';
-export const searchGifts = gifts => ({
+export const searchGifts = () => ({
 	type: SEARCH_GIFTS
 });
 
@@ -19,6 +19,7 @@ export const searchGiftsError = error => ({
 
 export const callSearchGiftsAPI = inputs => dispatch => {
 	dispatch(searchGifts());
+	console.log(inputs);
 	let url = new URL(GIFT_SEARCH_API_URL),
 		params = {
 			apiKey: GIFT_SEARCH_API_KEY,
@@ -41,12 +42,7 @@ export const callSearchGiftsAPI = inputs => dispatch => {
 			return res.json();
 		})
 		.then(response => {
-			if (response.code !== 400) {
-
-				dispatch(searchGiftsSuccess(response.items));
-			} else {
-			 dispatch(searchGiftsError(response.error.errors.message));
-			}
+				dispatch(searchGiftsSuccess(response));
 		})
 		.catch(err => dispatch(searchGiftsError(err)));
 };

@@ -38,7 +38,7 @@ class Dashboard extends React.Component {
 					{this.props.recipients && this.props.recipients.length ? (
 						recipientDetails
 					) : (
-						<span>You have not added any recipients yet.Please add them!</span>
+						<span className="message">You have not added any recipients yet.Please add them!</span>
 					)}
 				</ul>
 			</div>

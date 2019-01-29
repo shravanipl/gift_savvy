@@ -12,7 +12,7 @@ export class AddRecipient extends React.Component {
 
 			return (
 			<div id="loading">
-					{ <img src={ '../images/load.png' } alt="Loading..." /> }
+					{ <img src={'../images/load1.gif'} alt="Loading..." /> }
 			</div>
 			);
 		}
