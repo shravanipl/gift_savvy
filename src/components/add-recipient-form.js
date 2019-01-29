@@ -1,5 +1,5 @@
 import React from 'react';
-import { Field, reduxForm ,focus} from 'redux-form';
+import { Field, reduxForm, focus } from 'redux-form';
 
 import Select from './select';
 import { addRecipient } from '../actions/recipient-details';
@@ -46,19 +46,26 @@ export class AddRecipientForm extends React.Component {
 					<Field component="input" type="number" name="budget" required />
 
 					<label htmlFor="status">Gift Status</label>
-					<Field
-						id="status"
-						component={ Select }
-						name="status" required>
-						<option key={2333333} value={''}>Please Select</option>
-						<option key={1} value={'Not Purchased'}>Not Purchased</option>
-						<option key={2} value={'Purchased'}>Purchased</option>
-						<option key={3} value={'Gifted'}>Gifted</option>
+					<Field id="status" component={Select} name="status" required>
+						<option key={2333333} value={''}>
+							Please Select
+						</option>
+						<option key={1} value={'Not Purchased'}>
+							Not Purchased
+						</option>
+						<option key={2} value={'Purchased'}>
+							Purchased
+						</option>
+						<option key={3} value={'Gifted'}>
+							Gifted
+						</option>
 					</Field>
 
-					<button type="submit">Submit</button>
+					<button className="button"  type="submit">
+						Submit
+					</button>
 					<Link to="/dashboard">
-						<button type="button" aria-label="go back">
+						<button className="button" type="button" aria-label="go back">
 							Back
 						</button>
 					</Link>
@@ -72,7 +79,8 @@ AddRecipientForm = reduxForm({
 	form: 'addRecipient',
 	onSubmitFail: (errors, dispatch) => {
 		console.log(`Error: ${JSON.stringify(errors)}`);
-		dispatch(focus('addRecipient', Object.keys(errors)[0]));}
+		dispatch(focus('addRecipient', Object.keys(errors)[0]));
+	}
 })(AddRecipientForm);
 
 export default AddRecipientForm;

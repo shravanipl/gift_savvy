@@ -53,3 +53,8 @@ i:hover{
   font-family: 'Roboto';
 }
 
+@media only screen and  (max-width: 650px){
+  .recipientCard {
+    max-width: 300px;
+}
+}

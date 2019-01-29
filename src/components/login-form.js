@@ -18,13 +18,13 @@ export class LoginForm extends React.Component {
 				className="loginForm" id="login"
 				onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 				<label htmlFor="username">Username</label>
-				<Field component="input" type="text" name="username" id="username" />
+				<Field component="input" type="text" name="username" id="username" required/>
 				<label htmlFor="password">Password</label>
 				<Field
 					component="input"
 					type="password"
 					name="password"
-					id="password"
+					id="password" required
 				/>
 
 				{error && (

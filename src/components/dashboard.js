@@ -31,7 +31,7 @@ class Dashboard extends React.Component {
 		return (
 			<div>
 				<Nav />
-				<Link to="/addRecipients">
+				<Link to="/addRecipients" className="addRecipients">
 					<button className="addRecipients">Add Recipients</button>
 				</Link>
 				<ul>

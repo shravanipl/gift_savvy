@@ -98,11 +98,14 @@ export class EditRecipientForm extends React.Component {
 					<div>
 						<button
 							type="submit"
+							className="button"
 							disabled={this.props.pristine || this.props.submitting}>
 							Save Changes
 						</button>
 						<Link to="/dashboard">
-							<button type="button">Back</button>
+							<button className="button" type="button">
+								Back
+							</button>
 						</Link>
 					</div>
 				</form>

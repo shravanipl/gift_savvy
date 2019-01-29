@@ -23,31 +23,31 @@ export default function RecipientCard(props) {
 				</div>
 				<p className="recipient">
 					<span className="recipient-field-title">Name: </span>
-					{ props.name }
+					{props.name}
 				</p>
 				<p className="relationship">
 					<span className="recipient-field-title">Relationship: </span>
-					{ props.relationship}
+					{props.relationship}
 				</p>
 				<p className="occassion">
 					<span className="recipient-field-title">Occassion: </span>
-					{ props.occassion}
+					{props.occassion}
 				</p>
 				<p className="date">
 					<span className="recipient-field-title">Gift Date: </span>
-					{ moment(props.giftDate).format("DD-MMM-YYYY")}
+					{moment(props.giftDate).format('DD-MMM-YYYY')}
 				</p>
 				<p className="gift">
 					<span className="recipient-field-title">Gift: </span>
-					{ props.gift}
+					{props.gift}
 				</p>
 				<p className="budget">
 					<span className="recipient-field-title">Cost: </span>
-					{ props.budget}
+					{props.budget}
 				</p>
 				<p className="status">
 					<span className="recipient-field-title">Gift Status: </span>
-					{ props.giftStatus}
+					{props.giftStatus}
 				</p>
 			</div>
 		</li>
