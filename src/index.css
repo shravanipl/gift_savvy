@@ -5,6 +5,7 @@ body {
   padding: 0;
   font-family: "Roboto";
   text-align: center;
+  box-sizing: border-box;
 }
 
 .main-title{
@@ -57,7 +58,6 @@ form{
 
 }
 .banner {
-    /* color: rgba(255, 255, 255, 0.75); */
     padding: 8em 0 6em 0;
     -moz-align-items: center;
     -ms-align-items: center;
@@ -67,7 +67,6 @@ form{
     -moz-justify-content: center;
     -ms-justify-content: center;
     justify-content: center;
-    /* background-image: url(images/gift1.jpg); */
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -77,46 +76,6 @@ form{
     overflow: hidden;
     background-color: #464444;
 }
-
-a.more.scrolly{
-    position: absolute;
-    top: 680px;
-    right: 700px;
-    font-size: 25px;
-    color: white;
-}
-
- .scrolly {
-    -moz-transition: height 0.2s ease;
-    -webkit-transition: height 0.2s ease;
-    -ms-transition: height 0.2s ease;
-    transition: height 0.2s ease;
-    -moz-animation: more 0.75s ease-out 3s forwards;
-    -webkit-animation: more 0.75s ease-out 3s forwards;
-    -ms-animation: more 0.75s ease-out 3s forwards;
-    animation: more 0.75s ease-out 3s forwards;
-    background-color: #ffffff;
-    background-image: url(images/arrow.gif);
-    background-position: 50% 0.875em;
-    background-repeat: no-repeat;
-    background-size: auto;
-    border: 0;
-    border-radius: 4px 4px 0 0;
-    bottom: -3em;
-    color: #8e8e8e;
-    display: block;
-    height: 3em;
-    left: 50%;
-    margin-left: -2.5em;
-    overflow: hidden;
-    position: absolute;
-    text-indent: 5em;
-    white-space: nowrap;
-    width: 5em;
-    z-index: 2;
-}
-
-
 
 form#login {
     margin-top: 100px;
@@ -245,16 +204,22 @@ form input, select{
    color: inherit;
    outline: 0;
    padding: 0 1em;
+   box-sizing: border-box;
 }
 
 form input:hover, select:hover{
   border: 2px solid #e85d61;
 }
+
 input[type="date"] {
     padding-left: 20px;
     padding-right: 20px;
     height: 35px;
-    width: 250px;
+    width: 295px;
+}
+
+form select{
+  width: 300px; 
 }
 
 .fa-gift{
@@ -262,3 +227,25 @@ input[type="date"] {
    color: #e85d61;
 }
 
+ul span{
+  margin: 20px;
+}
+
+u.colour{
+  color:#e85d61;
+  font-size: 18px;
+}
+ @media only screen and (max-width: 650px) {
+  form input,select{
+    font-size: 10px;
+  }
+  input[type="date"] {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 140px;
+    height: 20px;
+  }
+  form select{
+  width: 140px; 
+}
+ }

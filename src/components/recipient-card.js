@@ -42,7 +42,7 @@ export default function RecipientCard(props) {
 					{ props.gift}
 				</p>
 				<p className="budget">
-					<span className="recipient-field-title">Budget: </span>
+					<span className="recipient-field-title">Cost: </span>
 					{ props.budget}
 				</p>
 				<p className="status">

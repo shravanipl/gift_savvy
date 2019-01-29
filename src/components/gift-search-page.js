@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Nav from './nav';
-import GiftSearchForm from './giftSearchForm';
-import requiresLogin from './requiresLogin';
+import GiftSearchForm from './gift-search-form';
+import requiresLogin from './requires-login';
 
 export function GiftSearchPage(props) {
 	return (

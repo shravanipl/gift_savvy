@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import Nav from './nav';
-import requiresLogin from './requiresLogin';
-import RecipientCard from './recipientCard';
-import { fetchAllRecipients } from '../actions/recipientDetails';
+import requiresLogin from './requires-login';
+import RecipientCard from './recipient-card';
+import { fetchAllRecipients } from '../actions/recipient-details';
 
 class Dashboard extends React.Component {
 	componentDidMount() {
@@ -47,13 +47,10 @@ class Dashboard extends React.Component {
 }
 
 const mapStateToProps = state => {
-	//console.log(state);
 	return {
-		username: state.auth.currentUser.username,
 		recipients: state.recipient.recipients,
 		isFetching: state.recipient.isFetching
 	};
 };
 
 export default requiresLogin()(connect(mapStateToProps)(Dashboard));
-// export default connect(mapStateToProps)(Dashboard);

@@ -23,11 +23,13 @@ export const callSearchGiftsAPI = inputs => dispatch => {
 		params = {
 			apiKey: GIFT_SEARCH_API_KEY,
 			query: inputs.item,
-			country: 'us'
+			country: 'us',
+			merchant: 'Amazon Marketplace',
+			itemsPerPage: 6
 		};
-    Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
-    console.log(url);
-
+	
+	Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+	
 	return fetch(url, {
 		method: 'GET',
 		headers: {
@@ -36,13 +38,15 @@ export const callSearchGiftsAPI = inputs => dispatch => {
 		}
 	})
 		.then(res => {
-			console.log('result');
 			return res.json();
 		})
-        .then(response => {
-            console.log(response);
+		.then(response => {
+			if (response.code !== 400) {
 
-            dispatch(searchGiftsSuccess(response.items));
+				dispatch(searchGiftsSuccess(response.items));
+			} else {
+			 dispatch(searchGiftsError(response.error.errors.message));
+			}
 		})
 		.catch(err => dispatch(searchGiftsError(err)));
 };

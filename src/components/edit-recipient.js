@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import requiresLogin from './requiresLogin';
-import { fetchRecipient } from '../actions/recipientDetails';
+import requiresLogin from './requires-login';
+import { fetchRecipient } from '../actions/recipient-details';
 // import './dashboard.css';
 import { EditRecipientForm } from './edit-recipient-form';
 // import spinner from '../images/ajax-loader.gif';

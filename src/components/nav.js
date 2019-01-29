@@ -14,7 +14,7 @@ export class Nav extends React.Component {
 		let logout;
 		if (this.props.loggedIn) {
 			logout = (
-				<a onClick={() => this.logOut()} className="nav-large-menu-items">
+				<a onClick={() => this.logOut()} className="nav-menu-items">
 					Log out
 				</a>
 			);
@@ -24,10 +24,10 @@ export class Nav extends React.Component {
 			return (
 				<nav aria-label="main menu">
 					<div id="nav-large-menu">	
-						<Link to="/dashboard" className="nav-large-menu-items">
+						<Link to="/dashboard" className="nav-menu-items">
 							Home
 						</Link>
-						<Link to="/giftSearchPage" className="nav-large-menu-items">
+						<Link to="/giftSearchPage" className="nav-menu-items">
 							Search Gifts
 						</Link>
 						{ logout }

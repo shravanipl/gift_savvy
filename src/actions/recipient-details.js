@@ -121,7 +121,7 @@ export const fetchRecipient = recipientId => dispatch => {
 	})
 		.then(res => res.json())
 		.then(recipient => {
-			dispatch(fetchRecipientDetailsSuccess(recipient))
+			dispatch(fetchRecipientDetailsSuccess(recipient));
 		})
 		.catch(err => dispatch(fetchRecipientDetailsError(err)));
 };
@@ -137,12 +137,12 @@ export const addRecipient = recipient => dispatch => {
 		body: JSON.stringify(recipient)
 	})
 		.then(res => res.json())
-		.then(response => dispatch(addRecipientDetailsSuccess(response)))
+		.then(response => 	dispatch(addRecipientDetailsSuccess(response)))
 		.catch(err => dispatch(addRecipientDetailsError(err)));
 };
 
 export const updateRecipient = recipient => dispatch => {
-	console.log(recipient,"call edit")
+	console.log(recipient, 'call edit');
 	const token = localStorage.getItem('authToken');
 	return fetch(`${API_BASE_URL}/recipients/${recipient.id}`, {
 		method: 'PUT',

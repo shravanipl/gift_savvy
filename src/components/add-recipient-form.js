@@ -1,26 +1,25 @@
 import React from 'react';
-import { Field, reduxForm, focus } from 'redux-form';
-import { addRecipient } from '../actions/recipientDetails';
+import { Field, reduxForm } from 'redux-form';
+
+import Select from './select';
+import { addRecipient } from '../actions/recipient-details';
 import { Link, Redirect } from 'react-router-dom';
 
 export class AddRecipientForm extends React.Component {
 	onSubmit(values) {
+		console.log(values);
 		const recipient = Object.assign({}, values);
 		return this.props.dispatch(addRecipient(recipient));
 	}
 
 	render() {
-		console.log(this.props.submitSucceeded);
 		if (this.props.submitSucceeded === true) {
-			console.log('this.props', this.props.submitSucceeded);
-
 			return (
 				<div>
 					<Redirect to={`/dashboard`} />
 				</div>
 			);
 		}
-		
 
 		return (
 			<div>
@@ -43,17 +42,19 @@ export class AddRecipientForm extends React.Component {
 					<label htmlFor="gift">Gift</label>
 					<Field component="input" type="text" name="gift" required />
 
-					<label htmlFor="budget">Budget</label>
+					<label htmlFor="budget">Cost</label>
 					<Field component="input" type="number" name="budget" required />
 
-					<label
-						htmlFor="status"
-						disabled={
-							this.props.pristine || this.props.invalid || this.props.submitting
-						}>
-						Gift Status
-					</label>
-					<Field component="input" type="text" name="status" required />
+					<label htmlFor="status">Gift Status</label>
+					<Field
+						id="status"
+						component={ Select }
+						name="status" required>
+						<option key={2333333} value={''}>Please Select</option>
+						<option key={1} value={'Not Purchased'}>Not Purchased</option>
+						<option key={2} value={'Purchased'}>Purchased</option>
+						<option key={3} value={'Gifted'}>Gifted</option>
+					</Field>
 
 					<button type="submit">Submit</button>
 					<Link to="/dashboard">
@@ -71,9 +72,7 @@ AddRecipientForm = reduxForm({
 	form: 'addRecipient'
 	// onSubmitFail: (errors, dispatch) => {
 	// 	console.log(`Error: ${JSON.stringify(errors)}`);
-	// 	dispatch(focus('addRecipient', Object.keys(errors)[0]));
-	}
-)(AddRecipientForm);
-
+	// 	dispatch(focus('addRecipient', Object.keys(errors)[0]));}
+})(AddRecipientForm);
 
 export default AddRecipientForm;

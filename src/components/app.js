@@ -2,11 +2,11 @@ import React from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import LandingPage from './landingPage';
+import LandingPage from './landing-page';
 import Dashboard from './dashboard';
 import AddRecipients from './add-recipient';
-import RegistrationPage from './registrationPage';
-import GiftSearchPage from './giftSearchPage';
+import RegistrationPage from './registration-page';
+import GiftSearchPage from './gift-search-page';
 import EditRecipient from './edit-recipient';
 import DeleteRecipient from './delete-recipient';
 import { refreshAuthToken } from '../actions/auth';

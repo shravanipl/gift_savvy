@@ -1,7 +1,7 @@
 import React from 'react';
 import { reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
-import { deleteRecipient, fetchRecipient } from '../actions/recipientDetails';
+import { deleteRecipient, fetchRecipient } from '../actions/recipient-details';
 // import './dashboard.css';
 // import './rental-card.css';
 import { Redirect } from 'react-router-dom';
@@ -33,31 +33,37 @@ export class DeleteRecipientForm extends React.Component {
 					<section className="recipient-details">
 						<div className="recipient">
 							<span>
-								<u>Name</u>: {this.props.initialValues.name}
+								<u className="colour">Name</u>: {this.props.initialValues.name}
 							</span>
 							<br />
 							<span>
-								<u>Relationship</u>: {this.props.initialValues.relationship}
+								<u className="colour">Relationship</u>:{' '}
+								{this.props.initialValues.relationship}
 							</span>
 							<br />
 							<span>
-								<u>Occassion</u>: {this.props.initialValues.occassion}
+								<u className="colour">Occassion</u>:{' '}
+								{this.props.initialValues.occassion}
 							</span>
 							<br />
 							<span>
-								<u>Gift Date</u>: {this.props.initialValues.giftDate}
+								<u className="colour">Gift Date</u>:{' '}
+								{this.props.initialValues.giftDate}
 							</span>
 							<br />
 							<span>
-								<u>gift</u>: {this.props.initialValues.gift}
+								<u className="colour">Gift</u>: {this.props.initialValues.gift}
 							</span>
 							<br />
 							<span>
-								<u>Budget</u>: {this.props.initialValues.budget}
-              </span>
-              <span>
-                <u>Gift Status</u>: { this.props.initialValues.giftStatus}
-              </span>
+								<u className="colour">Cost</u>:{' '}
+								{this.props.initialValues.budget}
+							</span>
+							<br />
+							<span>
+								<u className="colour">Gift Status</u>:{' '}
+								{this.props.initialValues.giftStatus}
+							</span>
 							<br />
 						</div>
 					</section>
@@ -82,7 +88,7 @@ DeleteRecipientForm = reduxForm({
 })(DeleteRecipientForm);
 
 DeleteRecipientForm = connect(
-	state => ({ initialValues: state.recipient.recipient}),
+	state => ({ initialValues: state.recipient.recipient }),
 	{ load: fetchRecipient }
 )(DeleteRecipientForm);
 

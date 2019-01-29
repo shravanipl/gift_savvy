@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import { callSearchGiftsAPI } from '../actions/gift-search';
-import GiftResult from './giftResult';
+import GiftResult from './gift-result';
+import './gift-search.css';
 
 export class GiftSearchForm extends React.Component {
 	onSubmit(values) {
@@ -13,46 +14,39 @@ export class GiftSearchForm extends React.Component {
 	}
 	render() {
 		let giftDetails;
+		let err;
 		if (this.props.isFetching) {
 			return (
 				<div id="loading">
-					<img src={'../images/load.png'} alt="Loading..."/>
+					<img src={ '../images/load.png' } alt="Loading..." />
 				</div>
 			);
-		} else {
-			if (this.props.gifts && this.props.gifts.length) {
-				let gifts = this.props.gifts;
-				giftDetails = gifts.map((gift, index) => <GiftResult key={index} {...gift} />);
-			}
 		}
+	
+		else if (this.props.gifts && this.props.gifts.length) {
+			let gifts = this.props.gifts;
+			giftDetails = gifts.map((gift, index) => (
+				<GiftResult key={ index } { ...gift } />
+			));
+		}
+		else if (this.props.err) {
+			err = <p>{ this.props.err }</p>;
+		}
+	
 		return (
-			<div >
-				<form className="giftSearch"
-				onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+			<div>
+				<form
+					className="giftSearch"
+					onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 					<label htmlFor="item">Gift Item</label>
 					<Field component="input" name="item" type="text" />
 
-					<label htmlFor="brand">Brand</label>
-					<Field component="input" name="brand" type="text" />
-
-					<label htmlFor="category">Category</label>
-					<select
-						id="category"
-						name="category"
-						label="Category"
-						aria-label="select a value">
-						<option key={1000000} value={''}>
-							Select a category
-						</option>
-					</select>
-
-					<label htmlFor="price">Price</label>
-					<Field component="input" name="price" type="text" />
 					<button type="submit" className="submit">
 						Search Gifts
 					</button>
-			</form>
+				</form>
 
+				<div className="error">{err}</div>
 				<div className="giftResults">{ giftDetails }</div>
 			</div>
 		);
@@ -61,7 +55,8 @@ export class GiftSearchForm extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		gifts: state.giftSearch.gifts
+		gifts: state.giftSearch.gifts,
+		err: state.giftSearch.error
 	};
 };
 

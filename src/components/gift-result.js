@@ -1,9 +1,10 @@
 import React from 'react';
+
 import './gift-search.css';
 
 export default function GiftResult(props) {
 	return (
-		<ul className="giftResults">
+		<ul>
 		<li className="giftResult">
 			<div className="gift-container">
 				<div className="card">

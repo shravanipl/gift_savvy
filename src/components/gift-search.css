@@ -1,11 +1,21 @@
 .giftResults{
-    display: flex;
-    align-content: space-between;
-    float: left;
+    margin: 0 -5px;
+}
+
+.giftResults:after{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.error{
+    color: red;
 }
 
 .giftResult{
-    
+ float: left;
+  width: 25%;
+  padding: 0 10px;
 }
 
 .gift-container{
@@ -17,14 +27,37 @@
     padding-bottom: 3em;}
 
 .card{
-  background-color: aqua;
+    background-color: #e5474b;
     display: inline-block;
     /* width: 25%; */
     height: 50%;
-    margin-top: 20px;
-        width: 33.33333%;
+    margin-top: 30px;
+    width: 33.33333%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
 }
 
-a {
+.card a {
     display: block;
+}
+
+@media screen and (max-width: 600px) {
+  .giftResult {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .card{
+    background-color: #e5474b;
+    max-width: 400px;
+    display: block;
+    height: 50%;
+    margin-top: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    width: fit-content;
+  }
 }

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import {
 	updateRecipient,
 	fetchRecipientDetails
-} from '../actions/recipientDetails';
+} from '../actions/recipient-details';
 // import './dashboard.css';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -69,22 +69,31 @@ export class EditRecipientForm extends React.Component {
 							required
 						/>
 
-						<label htmlFor="occassion">Gift Date</label>
+						<label htmlFor="giftDate">Gift Date</label>
 						<Field component="input" type="date" name="giftDate" required />
 
-						<label htmlFor="occassion">Gift</label>
+						<label htmlFor="gift">Gift</label>
 						<Field component="input" type="text" name="gift" required />
 
-						<label htmlFor="occassion">Budget</label>
+						<label htmlFor="budget">Cost</label>
 						<Field component="input" type="number" name="budget" required />
 
-						<label htmlFor="occassion">Gift Status</label>
+						<label htmlFor="giftStatus">Gift Status</label>
 						<Field
-							component="input"
-							type="text"
+							id="giftStatus"
+							component="select"
 							name="giftStatus"
-							required
-						/>
+							required>
+							<option key={1} value={'Not Purchased'}>
+								Not Purchased
+							</option>
+							<option key={2} value={'Purchased'}>
+								Purchased
+							</option>
+							<option key={3} value={'Gifted'}>
+								Gifted
+							</option>
+						</Field>
 					</section>
 					<div>
 						<button

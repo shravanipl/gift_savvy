@@ -14,7 +14,7 @@ import {
 	DELETE_RECIPIENT_DETAILS,
 	DELETE_RECIPIENT_DETAILS_SUCCESS,
 	DELETE_RECIPIENT_DETAILS_ERROR
-} from '../actions/recipientDetails';
+} from '../actions/recipient-details';
 
 const initialState = {
 	recipient: '',

@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import requiresLogin from './requiresLogin';
-// import './dashboard.css';
+
+import requiresLogin from './requires-login';
 import { AddRecipientForm } from './add-recipient-form';
-// import spinner from '../images/ajax-loader.gif';
 
 export class AddRecipient extends React.Component {
 	
