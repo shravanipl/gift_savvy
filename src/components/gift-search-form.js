@@ -3,6 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+import load2 from '../images/load2.gif';
 import { callSearchGiftsAPI } from '../actions/gift-search';
 import GiftResult from './gift-result';
 import './gift-search.css';
@@ -18,7 +19,7 @@ export class GiftSearchForm extends React.Component {
 		if (this.props.isFetching) {
 			return (
 				<div id="loading">
-					<img src={'../images/load.png'} alt="Loading..." />
+					<img src={load2} alt="Loading..." />
 				</div>
 			);
 		} else if (this.props.gifts.items && this.props.gifts.totalItems > 0) {

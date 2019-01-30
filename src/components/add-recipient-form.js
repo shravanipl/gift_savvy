@@ -5,9 +5,24 @@ import Select from './select';
 import { addRecipient } from '../actions/recipient-details';
 import { Link, Redirect } from 'react-router-dom';
 
+const minValue = min => value =>
+	value && value < min ? `Must be at least ${min}` : undefined;
+const minValue1 = minValue(1);
+
+const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
+	<div>
+		<label>{ label }</label>
+		<div>
+			<input { ...input } placeholder={ label } type={ type } />
+			{ touched && ((error && <span>{ error }</span>) || (warning && <span>{ warning }</span>)) }
+		</div>
+	</div>
+)
+
 export class AddRecipientForm extends React.Component {
+	
+	
 	onSubmit(values) {
-		console.log(values);
 		const recipient = Object.assign({}, values);
 		return this.props.dispatch(addRecipient(recipient));
 	}
@@ -28,7 +43,7 @@ export class AddRecipientForm extends React.Component {
 					aria-label="add new recipient form"
 					onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 					<label htmlFor="name">Name</label>
-					<Field component="input" name="name" type="text" />
+					<Field component="input" name="name" type="text" required/>
 
 					<label htmlFor="relationship">Relationship</label>
 					<Field component="input" type="text" name="relationship" required />
@@ -43,10 +58,10 @@ export class AddRecipientForm extends React.Component {
 					<Field component="input" type="text" name="gift" required />
 
 					<label htmlFor="budget">Cost</label>
-					<Field component="input" type="number" name="budget" required />
+					<Field component={renderField} type="number" name="budget" validate={ [minValue1] } required />
 
-					<label htmlFor="status">Gift Status</label>
-					<Field id="status" component={Select} name="status" required>
+					<label htmlFor="giftStatus">Gift Status</label>
+					<Field id="status" component={Select} name="giftStatus" required>
 						<option key={2333333} value={''}>
 							Please Select
 						</option>

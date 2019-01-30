@@ -2,8 +2,7 @@ import React from 'react';
 import { reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { deleteRecipient, fetchRecipient } from '../actions/recipient-details';
-// import './dashboard.css';
-// import './rental-card.css';
+
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 

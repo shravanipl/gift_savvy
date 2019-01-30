@@ -1,23 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
+
+import load2 from '../images/load2.gif';
 import { fetchRecipient } from '../actions/recipient-details';
-// import './dashboard.css';
 import { EditRecipientForm } from './edit-recipient-form';
-// import spinner from '../images/ajax-loader.gif';
 
 export class EditRecipient extends React.Component {
 	componentDidMount() {
 		//Recipient id is passed as params in props, so need to extract it
 		const recipientId = this.props.match.params.id;
-    this.props.dispatch(fetchRecipient(recipientId));
+		this.props.dispatch(fetchRecipient(recipientId));
 	}
 
 	render() {
 		if (this.props.isFetching)
 			return (
 				<div id="loading">
-					<img src={'../images/load.png'} alt="Loading..." />
+					<img src={load2} alt="Loading..." />
 				</div>
 			);
 
@@ -25,7 +25,7 @@ export class EditRecipient extends React.Component {
 
 		if (this.props.recipient) {
 			initialValues = this.props.recipient;
-    }
+		}
 
 		return (
 			<div className="dashboard">

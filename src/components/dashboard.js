@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import load1 from '../images/load1.gif';
 import Nav from './nav';
 import requiresLogin from './requires-login';
 import RecipientCard from './recipient-card';
@@ -17,7 +18,7 @@ class Dashboard extends React.Component {
 		if (this.props.isFetching) {
 			return (
 				<div id="loading">
-					<img src={'../images/load.png'} alt="Loading..." />
+					<img src={ load1} alt="Loading..." />
 				</div>
 			);
 		} else {
@@ -38,7 +39,9 @@ class Dashboard extends React.Component {
 					{this.props.recipients && this.props.recipients.length ? (
 						recipientDetails
 					) : (
-						<span className="message">You have not added any recipients yet.Please add them!</span>
+						<span className="message">
+							You have not added any recipients yet.Please add them!
+						</span>
 					)}
 				</ul>
 			</div>

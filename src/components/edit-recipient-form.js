@@ -1,14 +1,13 @@
 import React from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
 import { Link } from 'react-router-dom';
+
 import {
 	updateRecipient,
 	fetchRecipientDetails
 } from '../actions/recipient-details';
-// import './dashboard.css';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-// import { Categories } from '../data';
 
 export class EditRecipientForm extends React.Component {
 	onSubmit(values) {
@@ -19,10 +18,7 @@ export class EditRecipientForm extends React.Component {
 	}
 
 	render() {
-		// let categories = Categories;
-		// const categoriesOptions = categories.map((category, index) =>
-		//   <option key={ index } value={ category.value }>{ category.value }</option>
-		// );
+
 		if (this.props.submitSucceeded === true) {
 			return (
 				<div>

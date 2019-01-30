@@ -1,19 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import load2 from '../images/load2.gif';
 import requiresLogin from './requires-login';
 import { AddRecipientForm } from './add-recipient-form';
 
 export class AddRecipient extends React.Component {
-	
 	render() {
 		if (this.props.isFetching) {
-			alert("loading");
+			alert('loading');
 
 			return (
-			<div id="loading">
-					{ <img src={'../images/load1.gif'} alt="Loading..." /> }
-			</div>
+				<div id="loading">
+					{<img src={load2} alt="Loading..." />}
+				</div>
 			);
 		}
 
@@ -21,7 +21,7 @@ export class AddRecipient extends React.Component {
 			<div className="dashboard">
 				<h2 className="add_title">Add Recipient</h2>
 				<section className="outermost-section">
-					<AddRecipientForm/>
+					<AddRecipientForm />
 				</section>
 			</div>
 		);

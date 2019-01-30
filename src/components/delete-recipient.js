@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
+import load2 from '../images/load2.gif';
 import requiresLogin from './requires-login';
 import { fetchRecipient } from '../actions/recipient-details';
-// import './dashboard.css';
 import { DeleteRecipientForm } from './delete-recipient-form';
-// import spinner from '../images/ajax-loader.gif';
 
 export class DeleteRecipient extends React.Component {
 	componentDidMount() {
@@ -15,7 +15,7 @@ export class DeleteRecipient extends React.Component {
 		if (this.props.isFetching)
 			return (
 				<div id="loading">
-					<img src={'../images/load.png'} alt="Loading..." />
+					<img src={load2} alt="Loading..." />
 				</div>
 			);
 
@@ -27,7 +27,9 @@ export class DeleteRecipient extends React.Component {
 
 		if (!initialValues) {
 			return (
-				<div id="loading">{/* <img src={spinner} alt="Loading..." /> */}</div>
+				<div id="loading">
+					<img src={ load2 } alt="Loading..." />
+        </div>
 			);
 		}
 
