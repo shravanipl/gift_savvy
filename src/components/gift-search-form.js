@@ -11,6 +11,7 @@ import './gift-search.css';
 export class GiftSearchForm extends React.Component {
 	onSubmit(values) {
 		const inputs = Object.assign({}, values);
+		console.log(inputs)
 		return this.props.dispatch(callSearchGiftsAPI(inputs));
 	}
 	render() {
@@ -30,6 +31,7 @@ export class GiftSearchForm extends React.Component {
 		} else if (this.props.gifts.totalItems === 0) {
 			err = <p>Please enter valid search term!</p>;
 		} else if (this.props.err) {
+			console.log(this.props)
 			err = <p>{this.props.err}</p>;
 		}
 
@@ -53,7 +55,7 @@ export class GiftSearchForm extends React.Component {
 				</form>
 
 				<div className="error">{err}</div>
-				<div className="giftResults">{giftDetails}</div>
+				<div className="giftResults"> <ul>{ giftDetails }</ul></div>
 			</div>
 		);
 	}

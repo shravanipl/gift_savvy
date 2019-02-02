@@ -14,31 +14,44 @@ export class LoginForm extends React.Component {
 
 		return (
 			<div className="login_form">
-			<form
-				className="loginForm" id="login"
-				onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-				<label htmlFor="username">Username</label>
-				<Field component="input" type="text" name="username" id="username" required/>
-				<label htmlFor="password">Password</label>
-				<Field
-					component="input"
-					type="password"
-					name="password"
-					id="password" required
-				/>
-
-				{error && (
-					<div className="form-error" aria-live="polite">
-						{this.props.error}
+				<form
+					className="loginForm"
+					id="login"
+					onSubmit={ this.props.handleSubmit(values => this.onSubmit(values)) }>
+					<div className="demo">
+						<h4>Demo User</h4>
+						<p>Username : test3</p> <p>Password : test3</p>
 					</div>
-				)}
 
-				<button disabled={this.props.pristine || this.props.submitting}>
-					Log In
-				</button>
-				<Link to="/register" className="registerLink">
-					Create Account
-				</Link>
+					<label htmlFor="username">Username</label>
+					<Field
+						component="input"
+						type="text"
+						name="username"
+						id="username"
+						required
+					/>
+					<label htmlFor="password">Password</label>
+					<Field
+						component="input"
+						type="password"
+						name="password"
+						id="password"
+						required
+					/>
+
+					{error && (
+						<div className="form-error" aria-live="polite">
+							{this.props.error}
+						</div>
+					)}
+
+					<button disabled={this.props.pristine || this.props.submitting}>
+						Log In
+					</button>
+					<Link to="/register" className="registerLink">
+						Create Account
+					</Link>
 				</form>
 			</div>
 		);

@@ -1,8 +1,9 @@
 import React from 'react';
 import { reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
-import { deleteRecipient, fetchRecipient } from '../actions/recipient-details';
+import moment from 'moment';
 
+import { deleteRecipient, fetchRecipient } from '../actions/recipient-details';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -30,7 +31,7 @@ export class DeleteRecipientForm extends React.Component {
 					aria-label="delete recipient details"
 					onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 					<section className="recipient-details">
-						<div className="recipient">
+						<div className="del-recipient">
 							<span>
 								<u className="colour">Name</u>: {this.props.initialValues.name}
 							</span>
@@ -47,7 +48,9 @@ export class DeleteRecipientForm extends React.Component {
 							<br />
 							<span>
 								<u className="colour">Gift Date</u>:{' '}
-								{this.props.initialValues.giftDate}
+							  	{moment(this.props.initialValues.giftDate).format(
+									'DD-MMM-YYYY'
+								)}
 							</span>
 							<br />
 							<span>

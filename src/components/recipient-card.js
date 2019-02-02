@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import * as moment from 'moment';
+import moment from 'moment';
 
 import './recipient-card.css';
 

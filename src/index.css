@@ -25,11 +25,12 @@ form label{
 form{
    background-color: #e6e6e6;
    box-shadow: 3px 3px 3px 3px #b4b2b2;
-   width: 50%;
+   width: 45%;
    display: block;
    margin-left: auto;
    margin-right: auto;
    border-radius: 10px;
+   padding: 10px;
 }
 
 .register,.add_title {
@@ -153,10 +154,9 @@ select#category {
     text-align: center;
     display: block;
     margin: 20px;
-    padding: 10px;
     font-weight: bold;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .registerLink:hover{
@@ -204,7 +204,7 @@ form input, select{
   box-sizing: border-box;
   text-decoration: none;
   font-family: 'Roboto';
-  font-weight: 300;
+  font-weight: 400;
   color: #000;
   font-size: 15px;
   width: 250px;
@@ -239,7 +239,27 @@ a .addRecipients{
 }
 
 .button {
-    width: 200px;
+    width: 150px;
+    font-size: 12px;
+}
+
+.del-recipient{
+  line-height: 2;
+}
+
+.demo{
+  line-height: 0.2;
+}
+
+.demo p{
+  font-size: 12px;
+}
+
+.form-error{
+   font-size: 15px;
+   font-weight: normal;
+   color: brown;
+
 }
 
  @media only screen and (max-width: 650px) {

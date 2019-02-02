@@ -10,6 +10,7 @@ const initialState = {
 };
 
 export const giftSearchReducer = (state = initialState, action) => {
+
 	switch (action.type) {
 		case SEARCH_GIFTS:
 			return Object.assign({}, state, {

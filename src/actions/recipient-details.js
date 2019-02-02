@@ -90,7 +90,7 @@ export const deleteRecipientDetailsSuccess = recipient => ({
 
 export const DELETE_RECIPIENT_DETAILS_ERROR = 'DELETE_RECIPIENT_DETAILS_ERROR';
 export const deleteRecipientDetailsError = error => ({
-	type: FETCHING_RECIPIENT_DETAILS_ERROR,
+	type: DELETE_RECIPIENT_DETAILS_ERROR,
 	error
 });
 
@@ -137,7 +137,7 @@ export const addRecipient = recipient => dispatch => {
 		body: JSON.stringify(recipient)
 	})
 		.then(res => res.json())
-		.then(response => 	dispatch(addRecipientDetailsSuccess(response)))
+		.then(response => dispatch(addRecipientDetailsSuccess(response)))
 		.catch(err => dispatch(addRecipientDetailsError(err)));
 };
 
