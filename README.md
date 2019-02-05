@@ -8,8 +8,8 @@ For live demo click the below link,
 https://gift-savvy.herokuapp.com
 
 Demo Account Credentials:
-Username: test3
-Password: test3
+**Username** : test3
+**Password** : test3
 
 Client Github Repo: https://github.com/shravanipl/gift_savvy
 
