@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import load1 from '../images/load1.gif';
+import load from '../images/load2.gif';
 import Nav from './nav';
 import requiresLogin from './requires-login';
 import RecipientCard from './recipient-card';
@@ -18,7 +18,7 @@ class Dashboard extends React.Component {
 		if (this.props.isFetching) {
 			return (
 				<div id="loading">
-					<img src={load1} alt="Loading..." />
+					<img src={load} alt="Loading..." />
 				</div>
 			);
 		} else {
