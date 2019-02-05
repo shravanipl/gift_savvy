@@ -43,12 +43,12 @@ export class DeleteRecipientForm extends React.Component {
 							</span>
 							<br />
 							<span>
-								<u className="recipient-field-title">Occassion</u>:{' '}
+								<u className="recipient-field-title">Occasion</u>:{' '}
 								{this.props.initialValues.occassion}
 							</span>
 							<br />
 							<span>
-								<u className="recipient-field-title">Date of Occassion</u>:{' '}
+								<u className="recipient-field-title">Occasion Date</u>:{' '}
 								{moment(this.props.initialValues.giftDate).format(
 									'DD-MMM-YYYY'
 								)}

@@ -30,11 +30,11 @@ export default function RecipientCard(props) {
 					{props.relationship}
 				</p>
 				<p className="occassion">
-					<span className="recipient-field-title">Occassion: </span>
+					<span className="recipient-field-title">Occasion: </span>
 					{props.occassion}
 				</p>
 				<p className="date">
-					<span className="recipient-field-title">Date of Occassion: </span>
+					<span className="recipient-field-title">Occasion Date: </span>
 					{moment(props.giftDate).format('DD-MMM-YYYY')}
 				</p>
 				<p className="gift">

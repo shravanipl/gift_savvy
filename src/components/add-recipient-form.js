@@ -45,7 +45,7 @@ export class AddRecipientForm extends React.Component {
 						validate={[required, nonEmpty]}
 					/>
 
-					<label htmlFor="occassion">Occassion</label>
+					<label htmlFor="occassion">Occasion</label>
 					<Field
 						component={Input}
 						type="text"
@@ -53,7 +53,7 @@ export class AddRecipientForm extends React.Component {
 						validate={[required, nonEmpty]}
 					/>
 
-					<label htmlFor="giftDate">Date of Occassion</label>
+					<label htmlFor="giftDate">Occasion Date</label>
 					<Field
 						component={Input}
 						type="date"

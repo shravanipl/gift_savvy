@@ -61,7 +61,7 @@ export class EditRecipientForm extends React.Component {
 							validate={[required]}
 						/>
 
-						<label htmlFor="occassion">Occassion</label>
+						<label htmlFor="occassion">Occasion</label>
 						<Field
 							component={Input}
 							type="text"
@@ -71,7 +71,7 @@ export class EditRecipientForm extends React.Component {
 							validate={[required]}
 						/>
 
-						<label htmlFor="giftDate">Date of Occassion</label>
+						<label htmlFor="giftDate">Occasion Date</label>
 						<Field
 							component={Input}
 							type="date"
@@ -92,7 +92,7 @@ export class EditRecipientForm extends React.Component {
 							component={Input}
 							type="number"
 							name="budget"
-							validate={ [minValue1, required]}
+							validate={[minValue1, required]}
 							required
 						/>
 
@@ -101,7 +101,7 @@ export class EditRecipientForm extends React.Component {
 							id="giftStatus"
 							component={Select}
 							name="giftStatus"
-							validate={ [required] }>
+							validate={[required]}>
 							<option key={1} value={'Not Purchased'}>
 								Not Purchased
 							</option>
@@ -114,9 +114,7 @@ export class EditRecipientForm extends React.Component {
 						</Field>
 					</section>
 					<div>
-						<button
-							type="submit"
-							className="button">
+						<button type="submit" className="button">
 							Save Changes
 						</button>
 						<Link to="/dashboard">
