@@ -34,14 +34,13 @@ export const callSearchGiftsAPI = inputs => dispatch => {
 	return fetch(url, {
 		method: 'GET',
 		headers: {
+			'Access-Control-Allow-Origin': '*' ,
 			'Content-Type': 'application/json',
 			Authorization: `secret ${SECRET}`
 		}
 	})
 		.then(res => res.json())
 		.then(response => {
-			console.log(response);
-
 			dispatch(searchGiftsSuccess(response))
 		})
 		.catch(err => dispatch(searchGiftsError(err)));

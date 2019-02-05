@@ -13,33 +13,36 @@ export class LoginForm extends React.Component {
 		const { error } = this.props;
 
 		return (
-			<div className="login_form">
+			<div className="login-card card-3">
+				<div className="card-heading" />
 				<form
-					className="loginForm"
+					className="login-form card-body"
 					id="login"
-					onSubmit={ this.props.handleSubmit(values => this.onSubmit(values)) }>
-					<div className="demo">
-						<h4>Demo User</h4>
-						<p>Username : test3</p> <p>Password : test3</p>
+					autoComplete="off"
+					onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+					<h2 className="register">Login</h2>
+					<div className="input-group">
+						<label htmlFor="username">Username</label>
+						<Field
+							className="input--style-3"
+							component="input"
+							type="text"
+							name="username"
+							id="username"
+							required
+						/>
 					</div>
-
-					<label htmlFor="username">Username</label>
-					<Field
-						component="input"
-						type="text"
-						name="username"
-						id="username"
-						required
-					/>
-					<label htmlFor="password">Password</label>
-					<Field
-						component="input"
-						type="password"
-						name="password"
-						id="password"
-						required
-					/>
-
+					<div className="input-group">
+						<label htmlFor="password">Password</label>
+						<Field
+							className="input--style-3"
+							component="input"
+							type="password"
+							name="password"
+							id="password"
+							required
+						/>
+					</div>
 					{error && (
 						<div className="form-error" aria-live="polite">
 							{this.props.error}
@@ -50,8 +53,13 @@ export class LoginForm extends React.Component {
 						Log In
 					</button>
 					<Link to="/register" className="registerLink">
-						Create Account
+						New User? Create Account
 					</Link>
+					<div className="demo">
+						<h5>Demo</h5>
+						<p>Username : test3</p>
+						<p>Password : test3</p>
+					</div>
 				</form>
 			</div>
 		);

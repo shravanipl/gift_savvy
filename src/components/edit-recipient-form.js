@@ -1,6 +1,7 @@
 import React from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
 import { Link } from 'react-router-dom';
+import Input from './input';
 
 import {
 	updateRecipient,
@@ -9,16 +10,19 @@ import {
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+const minValue = min => value =>
+	value && value < min ? `Must be at least ${min}` : undefined;
+const minValue1 = minValue(1);
+
+
 export class EditRecipientForm extends React.Component {
 	onSubmit(values) {
 		const recipientId = this.props.initialValues.id;
 		const recipient = Object.assign({}, { id: recipientId }, values);
-		console.log('edit', recipient);
 		return this.props.dispatch(updateRecipient(recipient));
 	}
 
 	render() {
-
 		if (this.props.submitSucceeded === true) {
 			return (
 				<div>
@@ -30,11 +34,11 @@ export class EditRecipientForm extends React.Component {
 		return (
 			<div>
 				<form
-					className="edit-expense-form"
-					id="edit-property-form"
+					className="recipient-form error-label"
+					id="edit-recipient-form"
 					aria-label="edit recipient"
 					onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-					<section className="property-details">
+					<section className="recipient-details">
 						<label htmlFor="name">Name</label>
 						<Field
 							component="input"
@@ -65,14 +69,20 @@ export class EditRecipientForm extends React.Component {
 							required
 						/>
 
-						<label htmlFor="giftDate">Gift Date</label>
+						<label htmlFor="giftDate">Date of Occassion</label>
 						<Field component="input" type="date" name="giftDate" required />
 
 						<label htmlFor="gift">Gift</label>
 						<Field component="input" type="text" name="gift" required />
 
 						<label htmlFor="budget">Cost</label>
-						<Field component="input" type="number" name="budget" required />
+						<Field
+							component={Input}
+							type="number"
+							name="budget"
+							validate={[minValue1]}
+							required
+						/>
 
 						<label htmlFor="giftStatus">Gift Status</label>
 						<Field

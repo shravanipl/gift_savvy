@@ -14,7 +14,7 @@ export class Nav extends React.Component {
 		let logout;
 		if (this.props.loggedIn) {
 			logout = (
-				<a onClick={() => this.logOut()} className="nav-menu-items">
+				<a href="#" onClick={() => this.logOut()} className="nav-menu-items">
 					Log out
 				</a>
 			);

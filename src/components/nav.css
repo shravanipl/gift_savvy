@@ -7,6 +7,7 @@ nav {
   z-index: 10;
   font-weight: 700;
   font-size: 15px;
+  background-color: #121212;
 }
 
 nav a {
@@ -17,11 +18,9 @@ nav a {
     font-weight: 700;
     font-size: 15px;
     border: 3px solid transparent;
-    color: #e5474b;
     overflow: hidden;
     transition: all 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
     padding: 11.6666666667px 23.3333333333px;
-    border: 2px solid #e5474b;
 }
 
 nav li {
@@ -41,13 +40,9 @@ li > a {
 
 a {
   text-decoration: none;
-  color: black;
   transition: color 0.3s ease;
 }
 
-a:hover {
-  color:#e5474b;
-}
 
 nav h1 {
   display: block;
@@ -59,35 +54,27 @@ nav h1 {
  #nav-large-menu {
     display: flex;
     justify-content: center;
-    /* position: absolute;
-    margin-top: 30px; */
+    color: white;
     
   }
 
-
-@media only screen and (min-width: 480px) {
-
-
-  #nav-large-menu {
-    display: flex;
-    justify-content: center;
-}
-  
   .nav-menu-items {
+    color: white;
     display: block;
     font-size: 15px;
     text-align: center;
     border:2px solid transparent;
   }
 
+@media only screen and (min-width: 480px) {
+
   .nav-menu-items:hover {
-    color: white;
-    background: #e5474b;
+    color: #ccc;
     cursor: pointer;
   }
 
   nav h1 {
-    color: black;
+    color: white;
     float: left;
     font-size: 2.2rem;
     margin-top: 0.3rem;
@@ -108,6 +95,12 @@ nav h1 {
     font-size: 15px;
     display: flex;
     flex-direction: row;
+    color: white;
+  }
+
+   .nav-menu-items:hover {
+    color: #ccc;
+    cursor: pointer;
   }
   
 }

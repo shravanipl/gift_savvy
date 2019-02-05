@@ -8,6 +8,7 @@ import { login } from '../actions/auth';
 import { email, required, nonEmpty, length, isTrimmed } from '../validators';
 
 const passwordLength = length({ min: 4, max: 72 });
+const nameLength = length({ min: 3, max: 20 });
 
 export class RegistrationForm extends React.Component {
 	onSubmit(values) {
@@ -20,36 +21,64 @@ export class RegistrationForm extends React.Component {
 
 	render() {
 		return (
-			<form
-				className="login-form"
-				onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
-				<label htmlFor="name">Name</label>
-				<Field component={Input} type="text" name="name" />
-				<label htmlFor="email">Email</label>
-				<Field component={Input} type="text" name="email" validate={email} />
-				<label htmlFor="username">Username</label>
-				<Field
-					component={Input}
-					type="text"
-					name="username"
-					validate={[required, nonEmpty, isTrimmed]}
-				/>
-				<label htmlFor="password">Password</label>
-				<Field
-					component={Input}
-					type="password"
-					name="password"
-					validate={[required, passwordLength, isTrimmed]}
-				/>
-				<button
-					type="submit"
-					disabled={this.props.pristine || this.props.submitting}>
-					Register
-				</button>
-				<Link to="/" className="login">
-					Already have an account?Click here!
-				</Link>
-			</form>
+			<div className="login-card card-3">
+				<div className="card-heading" />
+				<form
+					className="login-form card-body"
+					autoComplete="off"
+					onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+					<h2 className="register">Registration form</h2>
+					<div className="input-group">
+						<label htmlFor="name">Name</label>
+						<Field
+							className="input--style-3"
+							component={Input}
+							type="text"
+							name="name"
+							validate={[required, nameLength, nonEmpty, isTrimmed]}
+						/>
+					</div>
+					<div className="input-group">
+						<label htmlFor="email">Email</label>
+						<Field
+							component={Input}
+							className="input--style-3"
+							type="text"
+							name="email"
+							validate={[email, required, nonEmpty, isTrimmed]}
+						/>
+					</div>
+					<div className="input-group">
+						<label htmlFor="username">Username</label>
+						<Field
+							className="input--style-3"
+							component={Input}
+							type="text"
+							name="username"
+							validate={[required, nonEmpty, isTrimmed]}
+						/>
+					</div>
+					<div className="input-group">
+						<label htmlFor="password">Password</label>
+						<Field
+							className="input--style-3"
+							component={Input}
+							type="password"
+							name="password"
+							validate={[required, passwordLength, isTrimmed]}
+						/>
+					</div>
+
+					<button
+						type="submit"
+						disabled={this.props.pristine || this.props.submitting}>
+						Register
+					</button>
+					<Link to="/" className="login">
+						Already have an account?Click here!
+					</Link>
+				</form>
+			</div>
 		);
 	}
 }
@@ -60,4 +89,3 @@ export default reduxForm({
 		dispatch(focus('registration', Object.keys(errors)[0]));
 	}
 })(RegistrationForm);
-

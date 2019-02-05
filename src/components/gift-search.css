@@ -13,62 +13,84 @@
 }
 
 .giftResult{
- float: left;
-  width: 25%;
-  padding: 0 10px;
+    display: inline-block;
+    width: 33.33333%;
+    float: left;
+    padding-top: 20px;
 }
 
-.gift-container{
-    width: 940px;
-    max-width: 100%;
-    min-width: 768px;
-    margin: 0 auto;
-    padding: 0 0;
-    padding-bottom: 3em;}
+img{
+    width: 150px;
+}
+
 
 .card{
-    background-color: #e5474b;
-    display: inline-block;
-    /* width: 25%; */
-    height: 50%;
     margin-top: 30px;
-    width: 33.33333%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.2);
     padding: 16px;
-    text-align: center;
+    width: 33.33%;
+    margin: 0 auto;
 }
 
 .card a {
     display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #0066c0;
 }
 
+.card a:hover{
+    color: black;
+}
+
+.card a:visited{
+    color: purple;
+}
 .card h2 {
     padding-bottom: 25px;
     font-size: 20px;
-    height: 35px;
+    height: 35px; 
 }
 
-.card:hover{
-   height: 55%;
-   width: 39%;
+.card p{
+    color : red;
 }
-
 @media screen and (max-width: 600px) {
   .giftResult {
     width: 100%;
-    display: block;
+    float: left;
     margin-bottom: 20px;
   }
 
   .card{
-    background-color: #e5474b;
-    max-width: 400px;
+    width: 50%;
     display: block;
-    height: 50%;
     margin-top: 30px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.2);
     padding: 16px;
-    text-align: center;
-    width: fit-content;
+  }
+
+  img{
+    width: 100px;
+  }
+}
+
+@media screen and (min-width:750px){
+    .giftResult {
+    float: left;
+    margin-bottom: 20px;
+  }
+
+  .card{
+    width: 50%;
+    display: block;
+    margin-top: 30px;
+    box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.2);
+    padding: 16px;
+  }
+
+  img{
+    width: 120px;
   }
 }

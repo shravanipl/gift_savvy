@@ -42,7 +42,7 @@ export class App extends React.Component {
 	render() {
 		return (
 			<div className="app">
-				<h1>
+				<h1 className="colour">
 					<span className="main-title">Gift Savvy<i className="fa fa-gift" aria-hidden="true" /></span>
 				</h1>
 				<Route exact path="/" component={LandingPage} />

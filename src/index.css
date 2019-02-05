@@ -1,41 +1,135 @@
-@import url("https://fonts.googleapis.com/css?family=Pacifico|Permanent+Marker|Special+Elite|Lobster|Playfair+Display:700|Norican");
+@import url("https://fonts.googleapis.com/css?family=Pacifico|Permanent+Marker|Special+Elite|Lobster|Poppins|Playfair+Display:700|Norican");
 
 body {
   margin: 0;
   padding: 0;
-  font-family: "Roboto";
+  font-family: 'Poppins', sans-serif;
   text-align: center;
   box-sizing: border-box;
 }
 
 .main-title{
-  font-family: 'Norican', cursive;
   text-transform: capitalize;
-  color: #e5474b;
+  color: white;
+}
+.title {
+    font-size: 24px;
+    color: #fff;
+    font-weight: 400;
+    margin-bottom: 36px;
+}
+.colour {
+    background-color: #AD103C;
+    color: white;
+    padding-bottom: 30px;
+    margin-bottom: 50px;
 }
 
-form label{
-   font-weight: bold;
-    display: block;
+h1.colour {
+    margin: 0;
+    padding-top: 10px;
+}
+
+h3 {
+    padding: 0;
+    margin: 0;
+}
+
+.login-card{
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: #fff;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 780px;
+    margin-bottom: 50px;
+}
+
+.p-b-100 {
+    padding-bottom: 100px;
+}
+
+.p-t-180 {
+    padding-top: 180px;
+}
+
+.p-t-50{
+  padding-top: 50px;
+}
+
+.page-wrapper {
+    min-height: 100vh;
+}
+
+select#giftStatus:focus {
+    color: rgb(110, 109, 109);
+}
+
+.card-3 {
+    background: #121212;
+    color: white;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    display: table;
+}
+
+.card-3 .card-heading {
+    background: url(./images/gifts4.jpg) top left/cover no-repeat;
+    display: table-cell;
+    width: 50%;
+}
+
+.card-3 .card-body {
+    padding: 57px 65px;
+    padding-bottom: 65px;
+    display: table-cell;
+}
+.register {
+    font-size: 24px;
+    color: #fff;
+    font-weight: 400;
+    margin-bottom: 36px;
+    text-align: left;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 33px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.input-group input {
+    outline: none;
+    margin: 0;
+    border: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    width: 100%;
+    font-size: 14px;
+    font-family: inherit;
+    color: #ccc;
+    background-color: transparent;
+}
+
+.input--style-3 {
+    padding: 5px 0;
+    font-size: 16px;
+    color: #ccc;
+    background: transparent;
+}
+
+.input-group label {
+    float: left;
     font-size: 18px;
-    font-weight: 700;
-    margin: 0.5em 0 1em 0.5em;
-}
-
-form{
-   background-color: #e6e6e6;
-   box-shadow: 3px 3px 3px 3px #b4b2b2;
-   width: 45%;
-   display: block;
-   margin-left: auto;
-   margin-right: auto;
-   border-radius: 10px;
-   padding: 10px;
-}
-
-.register,.add_title {
-    margin-top: 60px;
-    font-family: Norican;
 }
 
 .images{
@@ -56,8 +150,8 @@ form{
 
 #image {
   box-shadow: inset 0 0 0 1000px rgba(136, 130, 130, 0.2);
-
 }
+
 .banner {
     padding: 8em 0 6em 0;
     -moz-align-items: center;
@@ -102,21 +196,21 @@ button {
     font-family: Roboto;
     color: white;
     width: fit-content;
-    border: 2px solid #e5474b;
+    border: 2px solid #AD103C;
     text-transform: uppercase;
     border-radius: .12em;
     font-weight: bolder;
     text-align: center;
     transition: all .3s;
     font-size: 16px;
-    background-color:#e5474b;
+    background-color: #AD103C;
     margin-top: 20px;
     cursor: pointer;
 }
 
 button:hover{
- /* background-color: #e85d61; */
-  background-color: #e85d61;
+  background-color: rgb(177, 55, 89);
+  border: 2px solid rgb(177, 55, 89);
     -webkit-transform: translateY(-1px);
     -ms-transform: translateY(-1px);
     transform: translateY(-1px);
@@ -138,11 +232,42 @@ form.recipient, .giftSearch {
     line-height: 3;
 }
 
+.giftSearch{
+    position: relative;
+  width: 500px;
+  margin: 50px auto;
+  background-color: #121212;
+}
+
+.input-highlight {
+  user-select: none;
+  border-top: 3px solid white;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  max-width: 100%;
+  height: 0;
+  color: transparent;
+  overflow: hidden;
+}
+
+.giftSearch input {
+  height: 60px;
+  width: 100%;
+  min-width: 100%;
+  padding: 0;
+  border-radius: 0;
+  background-color: transparent;
+  color: white;
+  border: none;
+  outline: none;
+  border-bottom: 3px solid #333333;
+}
+
 .giftPageTitle {
-    font-size: 25px;
+    font-size: 20px;
     margin-top: 30px;
     font-weight: bold;
-    font-family: Norican;
 }
 
 select#category {
@@ -157,6 +282,7 @@ select#category {
     font-weight: bold;
     text-transform: uppercase;
     font-size: 14px;
+    color: white;
 }
 
 .registerLink:hover{
@@ -193,32 +319,43 @@ header{
   display: inline;
 }
 
-form input, select{
-  display: block;
-  padding: 0.4em 1.8em;
-  border: solid 2px #f7e6e6;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 10px;
-  border-radius: 0.12em;
-  box-sizing: border-box;
-  text-decoration: none;
-  font-family: 'Roboto';
-  font-weight: 400;
-  color: #000;
-  font-size: 15px;
-  width: 250px;
-  height: 35px;
-  outline: none;
+.recipient-form{
+    background: #000;
+    color: white;
+    border-radius: 10px;
+    width: 300px;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
 }
 
-form input:hover, select:hover{
-  border: 2px solid #e85d61;
+.recipient-form label{
+    text-align: left;
+}
+
+.recipient-form input, select{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-weight: 400;
+    color: #ccc;
+    font-size: 15px;
+    width: 50%;
+    height: 35px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border-bottom: solid 1px #ccc;
+    text-align: center;
 }
 
 .fa-gift{
   font-size: 20px;
-   color: #e85d61;
+   color: white;
 }
 
 ul span{
@@ -236,6 +373,7 @@ span.message{
 
 a .addRecipients{
    width: 200px;
+   margin-top: 40px;
 }
 
 .button {
@@ -245,6 +383,8 @@ a .addRecipients{
 
 .del-recipient{
   line-height: 2;
+  text-align: left;
+  padding: 12px;
 }
 
 .demo{
@@ -256,19 +396,26 @@ a .addRecipients{
 }
 
 .form-error{
-   font-size: 15px;
-   font-weight: normal;
-   color: brown;
-
+    font-size: 15px;
+    font-weight: normal;
+    color: brown;
+    padding: 5px;
+    margin: 0 auto;
+    display: block;
 }
 
- @media only screen and (max-width: 650px) {
-  form input,select{
-    font-size: 10px;
-    width:150px;
-  }
+form.recipient-form.error-label label .form-error {
+    text-align: center;
+    color: brown;
+}
 
-  .button {
-    width: 150px;
+ @media (max-width: 767px){
+.card-3 .card-heading {
+    display: block;
+    width: 100%;
+}
+
+.recipient-form{
+    width:250px;
 }
  }

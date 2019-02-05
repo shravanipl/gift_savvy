@@ -142,7 +142,6 @@ export const addRecipient = recipient => dispatch => {
 };
 
 export const updateRecipient = recipient => dispatch => {
-	console.log(recipient, 'call edit');
 	const token = localStorage.getItem('authToken');
 	return fetch(`${API_BASE_URL}/recipients/${recipient.id}`, {
 		method: 'PUT',

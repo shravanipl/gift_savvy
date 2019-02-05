@@ -1,15 +1,11 @@
 .recipientCard {
-  margin: 10px auto;
-  box-shadow: 6px 7px 10px #888888;
-  min-height: 150px;
-  padding: 20px 15px;
-  background: radial-gradient(ellipse at bottom, #202c3b 0%, #181c25 100%);
-  max-width: 800px;
-}
-
-.recipientCard:hover{
-  background: radial-gradient(ellipse at bottom, #2b3541 0%, #1c1f25 100%);
-  font-size: 18px;
+    margin: 10px auto;
+    box-shadow: 6px 7px 10px #888888;
+    min-height: 150px;
+    padding: 20px 15px;
+    background: #121212;
+    max-width: 500px;
+    /* display: inline-block; */
 }
 .recipientCardHeader {
   margin-bottom: 15px;

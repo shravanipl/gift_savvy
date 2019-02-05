@@ -34,7 +34,7 @@ export default function RecipientCard(props) {
 					{props.occassion}
 				</p>
 				<p className="date">
-					<span className="recipient-field-title">Gift Date: </span>
+					<span className="recipient-field-title">Date of Occassion: </span>
 					{moment(props.giftDate).format('DD-MMM-YYYY')}
 				</p>
 				<p className="gift">

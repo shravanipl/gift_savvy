@@ -1,27 +1,13 @@
 import React from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
-
+import  Input  from './input';
 import Select from './select';
 import { addRecipient } from '../actions/recipient-details';
 import { Link, Redirect } from 'react-router-dom';
+import { required, nonEmpty} from '../validators';
 
-const minValue = min => value =>
-	value && value < min ? `Must be at least ${min}` : undefined;
-const minValue1 = minValue(1);
-
-const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
-	<div>
-		<label>{ label }</label>
-		<div>
-			<input { ...input } placeholder={ label } type={ type } />
-			{ touched && ((error && <span>{ error }</span>) || (warning && <span>{ warning }</span>)) }
-		</div>
-	</div>
-)
 
 export class AddRecipientForm extends React.Component {
-	
-	
 	onSubmit(values) {
 		const recipient = Object.assign({}, values);
 		return this.props.dispatch(addRecipient(recipient));
@@ -39,29 +25,29 @@ export class AddRecipientForm extends React.Component {
 		return (
 			<div>
 				<form
-					className="add-recipient-form"
+					className="recipient-form error-label"
 					aria-label="add new recipient form"
-					onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+					onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
+					autoComplete="off">
 					<label htmlFor="name">Name</label>
-					<Field component="input" name="name" type="text" required/>
-
+					<Field component={ Input } name="name" type="text" validate={ [required, nonEmpty] } />
 					<label htmlFor="relationship">Relationship</label>
-					<Field component="input" type="text" name="relationship" required />
-
+					<Field component={ Input } type="text" name="relationship" validate={ [required, nonEmpty] } />
 					<label htmlFor="occassion">Occassion</label>
-					<Field component="input" type="text" name="occassion" required />
-
-					<label htmlFor="giftDate">Gift Date</label>
-					<Field component="input" type="date" name="giftDate" required />
-
+					<Field component={ Input } type="text" name="occassion" validate={ [required, nonEmpty] } />
+					<label htmlFor="giftDate">Date of Occassion</label>
+					<Field
+						component={ Input}
+						type="date"
+						name="giftDate"
+						validate={ [required, nonEmpty] }
+					/>
 					<label htmlFor="gift">Gift</label>
-					<Field component="input" type="text" name="gift" required />
-
+					<Field component={ Input} type="text" name="gift" />
 					<label htmlFor="budget">Cost</label>
-					<Field component={renderField} type="number" name="budget" validate={ [minValue1] } required />
-
+					<Field component={ Input} type="number" name="budget" />
 					<label htmlFor="giftStatus">Gift Status</label>
-					<Field id="status" component={Select} name="giftStatus" required>
+					<Field id="status" component={ Select } name="giftStatus" validate={ [required, nonEmpty] }>
 						<option key={2333333} value={''}>
 							Please Select
 						</option>
@@ -75,8 +61,7 @@ export class AddRecipientForm extends React.Component {
 							Gifted
 						</option>
 					</Field>
-
-					<button className="button"  type="submit">
+					<button className="button" type="submit">
 						Submit
 					</button>
 					<Link to="/dashboard">
@@ -93,7 +78,6 @@ export class AddRecipientForm extends React.Component {
 AddRecipientForm = reduxForm({
 	form: 'addRecipient',
 	onSubmitFail: (errors, dispatch) => {
-		console.log(`Error: ${JSON.stringify(errors)}`);
 		dispatch(focus('addRecipient', Object.keys(errors)[0]));
 	}
 })(AddRecipientForm);

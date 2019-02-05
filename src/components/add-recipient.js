@@ -10,11 +10,7 @@ export class AddRecipient extends React.Component {
 		if (this.props.isFetching) {
 			alert('loading');
 
-			return (
-				<div id="loading">
-					{<img src={load2} alt="Loading..." />}
-				</div>
-			);
+			return <div id="loading">{<img src={load2} alt="Loading..." />}</div>;
 		}
 
 		return (

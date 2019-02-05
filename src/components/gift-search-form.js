@@ -11,7 +11,6 @@ import './gift-search.css';
 export class GiftSearchForm extends React.Component {
 	onSubmit(values) {
 		const inputs = Object.assign({}, values);
-		console.log(inputs)
 		return this.props.dispatch(callSearchGiftsAPI(inputs));
 	}
 	render() {
@@ -31,14 +30,14 @@ export class GiftSearchForm extends React.Component {
 		} else if (this.props.gifts.totalItems === 0) {
 			err = <p>Please enter valid search term!</p>;
 		} else if (this.props.err) {
-			console.log(this.props)
-			err = <p>{this.props.err}</p>;
+			err = <p>Please try again later</p>;
 		}
 
 		return (
 			<div>
 				<form
-					className="giftSearch"
+					className="giftSearch recipient-form"
+					autoComplete="off"
 					onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 					<label htmlFor="item">Gift Item</label>
 					<Field
@@ -48,14 +47,16 @@ export class GiftSearchForm extends React.Component {
 						placeholder="eg.Nike running shoes"
 						required
 					/>
-
 					<button type="submit" className="submit">
 						Search Gifts
 					</button>
 				</form>
 
 				<div className="error">{err}</div>
-				<div className="giftResults"> <ul>{ giftDetails }</ul></div>
+				<div className="giftResults">
+					{' '}
+					<ul>{giftDetails}</ul>
+				</div>
 			</div>
 		);
 	}

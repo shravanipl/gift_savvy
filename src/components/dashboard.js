@@ -18,7 +18,7 @@ class Dashboard extends React.Component {
 		if (this.props.isFetching) {
 			return (
 				<div id="loading">
-					<img src={ load1} alt="Loading..." />
+					<img src={load1} alt="Loading..." />
 				</div>
 			);
 		} else {
@@ -32,18 +32,20 @@ class Dashboard extends React.Component {
 		return (
 			<div>
 				<Nav />
-				<Link to="/addRecipients" className="addRecipients">
-					<button className="addRecipients">Add Recipients</button>
-				</Link>
-				<ul>
-					{this.props.recipients && this.props.recipients.length ? (
-						recipientDetails
-					) : (
-						<span className="message">
-							You have not added any recipients yet.Please add them!
-						</span>
-					)}
-				</ul>
+				<div className="">
+					<Link to="/addRecipients" className="addRecipients">
+						<button className="addRecipients">Add Recipients</button>
+					</Link>
+					<ul>
+						{this.props.recipients && this.props.recipients.length ? (
+							recipientDetails
+						) : (
+							<span className="message">
+								You have not added any recipients yet.Please add them!
+							</span>
+						)}
+					</ul>
+				</div>
 			</div>
 		);
 	}

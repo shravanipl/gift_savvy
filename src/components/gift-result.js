@@ -5,14 +5,16 @@ import './gift-search.css';
 export default function GiftResult(props) {
 	return (
 		<ul>
-		<li className="giftResult">
-			<div className="gift-container">
+			<li className="giftResult">
 				<div className="card">
-					<h2>{props.name}</h2>
-					<img src={props.imageUrl} alt="Item" />
-					<a href={ props.url } target="_blank">CLICK</a>
-				</div>
-			</div>
+					<a href={ props.url } target="_blank" rel="noopener noreferrer">
+						<img src={ props.imageUrl } alt="Item" />
+						</a>
+						<a href={props.url} target="_blank" rel="noopener noreferrer">
+							{ props.name }
+						</a>
+						<p>{ `$${props.price}`}</p>
+					</div>
 			</li>
 		</ul>
 	);

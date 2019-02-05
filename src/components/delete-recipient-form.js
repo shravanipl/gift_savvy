@@ -26,44 +26,46 @@ export class DeleteRecipientForm extends React.Component {
 		return (
 			<div>
 				<form
-					className="delete-recipient-form"
+					className="recipient-form"
 					id="delete-recipient-form"
 					aria-label="delete recipient details"
 					onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
 					<section className="recipient-details">
 						<div className="del-recipient">
 							<span>
-								<u className="colour">Name</u>: {this.props.initialValues.name}
+								<u className="recipient-field-title">Name</u>:{' '}
+								{this.props.initialValues.name}
 							</span>
 							<br />
 							<span>
-								<u className="colour">Relationship</u>:{' '}
+								<u className="recipient-field-title">Relationship</u>:{' '}
 								{this.props.initialValues.relationship}
 							</span>
 							<br />
 							<span>
-								<u className="colour">Occassion</u>:{' '}
+								<u className="recipient-field-title">Occassion</u>:{' '}
 								{this.props.initialValues.occassion}
 							</span>
 							<br />
 							<span>
-								<u className="colour">Gift Date</u>:{' '}
-							  	{moment(this.props.initialValues.giftDate).format(
+								<u className="recipient-field-title">Date of Occassion</u>:{' '}
+								{moment(this.props.initialValues.giftDate).format(
 									'DD-MMM-YYYY'
 								)}
 							</span>
 							<br />
 							<span>
-								<u className="colour">Gift</u>: {this.props.initialValues.gift}
+								<u className="recipient-field-title">Gift</u>:{' '}
+								{this.props.initialValues.gift}
 							</span>
 							<br />
 							<span>
-								<u className="colour">Cost</u>:{' '}
+								<u className="recipient-field-title">Cost</u>:{' '}
 								{this.props.initialValues.budget}
 							</span>
 							<br />
 							<span>
-								<u className="colour">Gift Status</u>:{' '}
+								<u className="recipient-field-title">Gift Status</u>:{' '}
 								{this.props.initialValues.giftStatus}
 							</span>
 							<br />
