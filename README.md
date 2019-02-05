@@ -37,13 +37,15 @@ Follow the below steps to use the application
 
 ![Scheme](src/images/s5.jpg)
 
+![Scheme](src/images/s6.jpg)
+
 6.To **Delete** recipient, click on the **Delete** button if you want to delete the recipient permanently or **Cancel** if you wish to retain.
 
-![Scheme](src/images/s6.jpg)
+![Scheme](src/images/s7.jpg)
+
 
 7. You can search the gifts you wish to gift by clicking  **Search Gifts** link.
 
-![Scheme](src/images/s7.jpg)
 
 8.Enter the items you wish to gift by clicking **SEARCH GIFTS** button. 
 
@@ -52,5 +54,6 @@ Follow the below steps to use the application
 9.Based on the search term, items will be displayed as shown below if not found suitable error message will be displayed.
 
 ![Scheme](src/images/s9.jpg)
+
 
 10.On click of each item, it will be redirected to the merchant website where the user can purchase the gifts.
