@@ -9,6 +9,7 @@ import { email, required, nonEmpty, length, isTrimmed } from '../validators';
 
 const passwordLength = length({ min: 4, max: 72 });
 const nameLength = length({ min: 3, max: 20 });
+const usernameLength = length({min:4,max:20})
 
 export class RegistrationForm extends React.Component {
 	onSubmit(values) {
@@ -55,7 +56,7 @@ export class RegistrationForm extends React.Component {
 							component={Input}
 							type="text"
 							name="username"
-							validate={[required, nonEmpty, isTrimmed]}
+							validate={  [required, usernameLength, nonEmpty, isTrimmed]}
 						/>
 					</div>
 					<div className="input-group">
