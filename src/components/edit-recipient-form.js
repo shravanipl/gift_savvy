@@ -1,19 +1,20 @@
 import React from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
 import { Link } from 'react-router-dom';
-import Input from './input';
 
+import Input from './input';
+import Select from './select';
 import {
 	updateRecipient,
 	fetchRecipientDetails
 } from '../actions/recipient-details';
+import { required } from '../validators';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const minValue = min => value =>
 	value && value < min ? `Must be at least ${min}` : undefined;
 const minValue1 = minValue(1);
-
 
 export class EditRecipientForm extends React.Component {
 	onSubmit(values) {
@@ -41,55 +42,66 @@ export class EditRecipientForm extends React.Component {
 					<section className="recipient-details">
 						<label htmlFor="name">Name</label>
 						<Field
-							component="input"
+							component={Input}
 							type="text"
 							name="name"
 							id="name"
 							aria-label="Name"
-							required
+							validate={[required]}
 						/>
 
 						<label htmlFor="relationship">Relationship</label>
 						<Field
-							component="input"
+							component={Input}
 							name="relationship"
 							type="text"
 							required
 							id="relationship"
 							aria-label="relationship"
+							validate={[required]}
 						/>
 
 						<label htmlFor="occassion">Occassion</label>
 						<Field
-							component="input"
+							component={Input}
 							type="text"
 							name="occassion"
 							aria-label="occassion"
 							id="occassion"
-							required
+							validate={[required]}
 						/>
 
 						<label htmlFor="giftDate">Date of Occassion</label>
-						<Field component="input" type="date" name="giftDate" required />
+						<Field
+							component={Input}
+							type="date"
+							name="giftDate"
+							validate={[required]}
+						/>
 
 						<label htmlFor="gift">Gift</label>
-						<Field component="input" type="text" name="gift" required />
+						<Field
+							component={Input}
+							type="text"
+							name="gift"
+							validate={[required]}
+						/>
 
 						<label htmlFor="budget">Cost</label>
 						<Field
 							component={Input}
 							type="number"
 							name="budget"
-							validate={[minValue1]}
+							validate={ [minValue1, required]}
 							required
 						/>
 
 						<label htmlFor="giftStatus">Gift Status</label>
 						<Field
 							id="giftStatus"
-							component="select"
+							component={Select}
 							name="giftStatus"
-							required>
+							validate={ [required] }>
 							<option key={1} value={'Not Purchased'}>
 								Not Purchased
 							</option>
@@ -104,8 +116,7 @@ export class EditRecipientForm extends React.Component {
 					<div>
 						<button
 							type="submit"
-							className="button"
-							disabled={this.props.pristine || this.props.submitting}>
+							className="button">
 							Save Changes
 						</button>
 						<Link to="/dashboard">

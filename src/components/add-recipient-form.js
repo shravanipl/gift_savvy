@@ -1,11 +1,10 @@
 import React from 'react';
 import { Field, reduxForm, focus } from 'redux-form';
-import  Input  from './input';
+import Input from './input';
 import Select from './select';
 import { addRecipient } from '../actions/recipient-details';
 import { Link, Redirect } from 'react-router-dom';
-import { required, nonEmpty} from '../validators';
-
+import { required, nonEmpty } from '../validators';
 
 export class AddRecipientForm extends React.Component {
 	onSubmit(values) {
@@ -29,25 +28,51 @@ export class AddRecipientForm extends React.Component {
 					aria-label="add new recipient form"
 					onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
 					autoComplete="off">
+
 					<label htmlFor="name">Name</label>
-					<Field component={ Input } name="name" type="text" validate={ [required, nonEmpty] } />
+					<Field
+						component={Input}
+						name="name"
+						type="text"
+						validate={[required, nonEmpty]}
+					/>
+
 					<label htmlFor="relationship">Relationship</label>
-					<Field component={ Input } type="text" name="relationship" validate={ [required, nonEmpty] } />
+					<Field
+						component={Input}
+						type="text"
+						name="relationship"
+						validate={[required, nonEmpty]}
+					/>
+
 					<label htmlFor="occassion">Occassion</label>
-					<Field component={ Input } type="text" name="occassion" validate={ [required, nonEmpty] } />
+					<Field
+						component={Input}
+						type="text"
+						name="occassion"
+						validate={[required, nonEmpty]}
+					/>
+
 					<label htmlFor="giftDate">Date of Occassion</label>
 					<Field
-						component={ Input}
+						component={Input}
 						type="date"
 						name="giftDate"
-						validate={ [required, nonEmpty] }
+						validate={[required, nonEmpty]}
 					/>
+
 					<label htmlFor="gift">Gift</label>
-					<Field component={ Input} type="text" name="gift" />
+					<Field component={ Input } type="text" name="gift" />
+					
 					<label htmlFor="budget">Cost</label>
-					<Field component={ Input} type="number" name="budget" />
+					<Field component={ Input } type="number" name="budget" />
+					
 					<label htmlFor="giftStatus">Gift Status</label>
-					<Field id="status" component={ Select } name="giftStatus" validate={ [required, nonEmpty] }>
+					<Field
+						id="status"
+						component={Select}
+						name="giftStatus"
+						validate={[required, nonEmpty]}>
 						<option key={2333333} value={''}>
 							Please Select
 						</option>

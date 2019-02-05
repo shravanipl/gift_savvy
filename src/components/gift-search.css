@@ -56,6 +56,11 @@ img{
 .card p{
     color : red;
 }
+
+.loading img{
+  width: 150px;
+}
+
 @media screen and (max-width: 600px) {
   .giftResult {
     width: 100%;
@@ -74,6 +79,9 @@ img{
   img{
     width: 100px;
   }
+  .loading img{
+  width: 120px;
+}
 }
 
 @media screen and (min-width:750px){
@@ -93,4 +101,7 @@ img{
   img{
     width: 120px;
   }
+  .loading img{
+  width: 150px;
+}
 }
