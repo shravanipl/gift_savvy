@@ -36,7 +36,7 @@ export const callSearchGiftsAPI = inputs => dispatch => {
 		headers: {
 			'Access-Control-Allow-Origin': '*' ,
 			'Content-Type': 'application/json',
-			Authorization: `secret ${SECRET}`
+			'Authorization': `secret ${SECRET}`
 		}
 	})
 		.then(res => res.json())
