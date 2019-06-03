@@ -25,7 +25,6 @@ export const callSearchGiftsAPI = inputs => dispatch => {
 			origin:'*',
 			query: inputs.item,
 			country: 'us',
-			merchant: 'Amazon Marketplace',
 			itemsPerPage: 9
 		};
 	
